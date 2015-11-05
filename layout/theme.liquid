@@ -19,7 +19,9 @@
 	</title>
 
 	{% if page_description %}
+		<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 		<meta name="description" content="{{ page_description | escape }}">
+		<!-- locksmith:v3({% endunless %}) -->
 	{% endif %}
 
 	{% include 'head_open-graph' %}
@@ -130,7 +132,7 @@
 
 		<main id="content" role="main">
 
-			{{ content_for_layout }}
+			{% if true %}{% include 'locksmith' %}{% else %}{{ content_for_layout }}{% endif %}
 
 		</main>
 

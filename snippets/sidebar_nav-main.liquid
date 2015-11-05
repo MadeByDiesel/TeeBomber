@@ -3,15 +3,19 @@
 
 	{% for link in linklists['main-menu'].links %}
 
+	<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
+
 		{% assign child_list_handle = link.title | handleize %}
 
 		{% if linklists[child_list_handle].links != blank %}
 
 			{% assign submenu_active = false %}
 			{% for childlink in linklists[child_list_handle].links %}
+			<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: childlink %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 				{% if childlink.active %}
 					{% assign submenu_active = true %}
 				{% endif %}
+			<!-- locksmith:v3({% endunless %}) -->
 			{% endfor %}
 
 			<li class="submenu{% if link.active or submenu_active %} selected{% endif %}" aria-haspopup="true">
@@ -21,7 +25,9 @@
 				</a>
 				<ul class="sub-menu">
 				{% for childlink in linklists[child_list_handle].links %}
+				<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: childlink %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 					<li{% if childlink.active %} class="selected"{% endif %}><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+				<!-- locksmith:v3({% endunless %}) -->
 				{% endfor %}
 				</ul>
 			</li>
@@ -33,6 +39,8 @@
 			</li>
 			
 		{% endif %}
+
+	<!-- locksmith:v3({% endunless %}) -->
 
 	{% endfor %}
 

@@ -57,11 +57,13 @@
 {% paginate collection.products by per %}
 
 	<div id="products-grid" class="isotope-products border-{{settings.collections_border }}{% if settings.collection_show_description != false and collection.image %} no-loader{% endif %}">
-		{% for product in collection.products %}	
+		{% for product in collection.products %}
+		<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: product %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->	
 			<!-- Bold D&H //collection -->
 			{% if product.metafields.inventory.ShappifyHidden == "true" %}{% continue %}{% endif %}
 			<!-- //end collection D&H -->
 			{% include 'collection_item' %}
+		<!-- locksmith:v3({% endunless %}) -->
 		{% else %}
 			<p class="no-content-message">{{ 'products.grid.no_products_text' | t }}</p>
 		{% endfor %}

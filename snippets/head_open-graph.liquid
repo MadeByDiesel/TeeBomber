@@ -1,41 +1,77 @@
 {% if template contains 'product' %}
 
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
+
 	<meta property="og:type" content="product">
+
+	<!-- locksmith:v3({% endunless %}) -->
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta property="og:title" content="{{ product.title | strip_html | escape }}">
+	<!-- locksmith:v3({% endunless %}) -->
 	{% for image in product.images limit:3 %}
+		<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 		<meta property="og:image" content="http:{{ image.src | img_url: 'grande' }}">
+		<!-- locksmith:v3({% endunless %}) -->
+		<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 		<meta property="og:image:secure_url" content="https:{{ image.src | img_url: 'grande' }}">
+		<!-- locksmith:v3({% endunless %}) -->
 	{% endfor %}
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html | escape }}">
+	<!-- locksmith:v3({% endunless %}) -->
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta property="og:price:currency" content="{{ shop.currency }}">
+	<!-- locksmith:v3({% endunless %}) -->
 
 {% elsif template contains 'article' %}
 
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
+
 	<meta property="og:type" content="article">
+
+	<!-- locksmith:v3({% endunless %}) -->
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta property="og:title" content="{{ article.title | strip_html | escape }}">
+	<!-- locksmith:v3({% endunless %}) -->
 
 	{% if article.content contains "<img" %}
 		{% assign src = article.content | split: 'src="' %}
 		{% assign src = src[1] | split: '"' | first | replace: '//cdn', 'http://cdn';; | replace: 'http:http://';;, 'http://';; | remove: 'https:' %}
 		{% if src %}
+			<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 			<meta property="og:image" content="http:{{ src }}">
+			<!-- locksmith:v3({% endunless %}) -->
+			<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 			<meta property="og:image:secure_url" content="https:{{ src }}">
+			<!-- locksmith:v3({% endunless %}) -->
 		{% endif %}
 	{% endif %}
 
 {% else %}
 
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
+
 	<meta property="og:type" content="website">
+
+	<!-- locksmith:v3({% endunless %}) -->
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta property="og:title" content="{{ page_title | escape }}">
+	<!-- locksmith:v3({% endunless %}) -->
 	{% if settings.logo_type == 'img' %}
+		<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 		<meta property="og:image" content="http:{{ 'logo.png' | asset_url }}">
+		<!-- locksmith:v3({% endunless %}) -->
+		<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 		<meta property="og:image:secure_url" content="https:{{ 'logo.png' | asset_url }}">
+		<!-- locksmith:v3({% endunless %}) -->
 	{% endif %}
 
 {% endif %}
 
 {% if page_description %}
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta property="og:description" content="{{ page_description | escape }}">
+	<!-- locksmith:v3({% endunless %}) -->
 {% endif %}
 
 <meta property="og:url" content="{{ canonical_url }}">
@@ -49,16 +85,34 @@
 
 {% if template contains 'product' %}
 
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
+
 	<meta name="twitter:title" content="{{ product.title }}">
+
+	<!-- locksmith:v3({% endunless %}) -->
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta name="twitter:description" content="{{ product.description | strip_html | truncatewords: 140, '' | escape }}">
+	<!-- locksmith:v3({% endunless %}) -->
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta name="twitter:image" content="https:{{ product.featured_image.src | img_url: 'medium' }}">
+	<!-- locksmith:v3({% endunless %}) -->
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta name="twitter:image:width" content="240">
+	<!-- locksmith:v3({% endunless %}) -->
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta name="twitter:image:height" content="240">
+	<!-- locksmith:v3({% endunless %}) -->
 
 {% elsif template contains 'article' %}
 
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
+
 	<meta name="twitter:title" content="{{ article.title }}">
+
+	<!-- locksmith:v3({% endunless %}) -->
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<meta name="twitter:description" content="{{ article.excerpt_or_content | strip_html | truncatewords: 140, '' | escape }}">
+	<!-- locksmith:v3({% endunless %}) -->
 
 	{% if article.content contains "<img" %}
 		{% assign src = article.content | split: 'src="' %}

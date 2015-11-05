@@ -1,5 +1,7 @@
 {% for link in linklists.footer.links %}
+<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: link %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 	<a class="footer-link" href="{{ link.url }}">{{ link.title }}</a>
+<!-- locksmith:v3({% endunless %}) -->
 {% endfor %}
 
 {% if settings.show_payment and shop.enabled_payment_types != empty %}

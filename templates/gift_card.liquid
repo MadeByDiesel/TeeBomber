@@ -15,7 +15,11 @@
 
 	<title>{{ shop.name }}</title>
 
+	<!-- locksmith:v3({% include 'locksmith-variables' %}{% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
+
 	<meta name="description" content="{{ 'gift_card.title' | t }}">
+
+	<!-- locksmith:v3({% endunless %}) -->
 
 	<link rel="canonical" href="{{ canonical_url }}">
 

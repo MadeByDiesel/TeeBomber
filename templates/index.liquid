@@ -200,11 +200,15 @@
 
 					{% for collection in collections limit:6 %}
 
+					<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: collection %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
+
 						{% if collection.handle == 'frontpage' %}
 							{% continue %}
 					    {% endif %}
 					    
 						{% include 'collections_item' %}
+
+					<!-- locksmith:v3({% endunless %}) -->
 
 					{% endfor %}
 
@@ -271,7 +275,10 @@
 					{% if collection_count > 0 %}
 
 						{% for product in collections[settings.home_collections_select].products limit:per %}
+
+						<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: product %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 						    {% include 'collection_item' %}
+						<!-- locksmith:v3({% endunless %}) -->
 						{% endfor %}
 
 					{% endif %}
@@ -311,7 +318,10 @@
 				<div class="blog-grid cols-{{ settings.blog_cols }} clearfix">
 
 					{% for article in blogs[settings.home_blog_select].articles limit:per %}
+
+					<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: article %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 						{% include 'blog_item' %}
+					<!-- locksmith:v3({% endunless %}) -->
 					{% endfor %}
 
 				</div>

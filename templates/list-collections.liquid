@@ -1,12 +1,16 @@
 <div id="products-grid" class="isotope-products collections-list border-{{settings.collections_border }}">
 	
 	{% for collection in collections %}
+	
+	<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: collection %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 
 		{% if collection.handle == 'frontpage' %}
 			{% continue %}
 	    {% endif %}
 
 		{% include 'collections_item' %}
+
+	<!-- locksmith:v3({% endunless %}) -->
 
 	{% endfor %}
 	

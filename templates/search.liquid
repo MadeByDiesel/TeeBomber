@@ -1,3 +1,4 @@
+<!-- locksmith:v3({% paginate search.results by 50 %}{% assign locksmith_search_results_count = search.results_count %}{% for result in search.results %}{% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: result %}{% if locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}{% assign locksmith_search_results_count = locksmith_search_results_count | minus: 1 %}{% endif %}{% endfor %}{% endpaginate %}) -->
 {% assign grid_results = false %}
 
 {% assign respond_js_secret_key = shop.domain | md5 %}
@@ -11,28 +12,28 @@
 
 				<header class="page-title">
 					<h1 class="title">{{ 'search.page.title' | t }}</h1>
-					{% if search.results_count == 0 %}
+					{% if locksmith_search_results_count == 0 %}
 						<h2 class="subtitle">{{ 'search.page.no_results_subtitle_html' | t : terms : search.terms }}</h2>
 					{% else %}
 						<h2 class="subtitle">{{ 'search.page.some_results_subtitle_html' | t : terms : search.terms }}
-							{% if search.results_count == 1 %}
+							{% if locksmith_search_results_count == 1 %}
 								{{ 'search.page.one_result' | t }}
 							{% else %}
-								{{ 'search.page.more_results' | t : count : search.results_count }}
+								{{ 'search.page.more_results' | t : count : locksmith_search_results_count }}
 							{% endif %}
 						</h2>
 					{% endif %}
 				</header>
 
-				{% if search.results_count == 0 %}
+				{% if locksmith_search_results_count == 0 %}
 
 					<p>{{ 'search.page.no_results_text' | t }}</p>
 
 					{% include 'main_search' with 'secondary' %}
 
 				{% else %}
-
 					{% for item in search.results %}
+					<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: item %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 						<!-- Bold D&H //search -->
 						{% if item.metafields.inventory.ShappifyHidden == "true" %}{% continue %}{% endif %}
 						<!-- // end search D&H -->
@@ -75,7 +76,7 @@
 							</li>
 
 						{% endif %}
-
+					<!-- locksmith:v3({% endunless %}) -->
 					{% endfor %}
 
 				{% endif %}

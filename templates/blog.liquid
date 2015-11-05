@@ -12,7 +12,10 @@
 		<div class="blog-grid cols-{{ settings.blog_cols }} clearfix">
 
 			{% for article in blog.articles %}
+
+			<!-- locksmith:v3({% include 'locksmith-variables', locksmith_scope: 'subject', locksmith_subject: article %} {% unless locksmith_locked and locksmith_access_denied and locksmith_manual_lock == false %}) -->
 				{% include 'blog_item' %}
+			<!-- locksmith:v3({% endunless %}) -->
 			{% endfor %}
 
 		</div>
