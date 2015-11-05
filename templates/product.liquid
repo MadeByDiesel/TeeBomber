@@ -1,3 +1,6 @@
+<!-- Bold: QB - Step 1 -->
+{% include 'shappify-qb-no-select' %}
+<!-- // end Bold code -->
 <!-- Bold D&H //product -->
 {% if product.metafields.inventory.ShappifyHidden == "true" %}
 Product is not available
@@ -72,7 +75,7 @@ Product is not available
 					<!-- // end Options 3-2 -->
 
 					{% if settings.quantity_selector %}
-						<input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
+						<input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector" >
 					{% endif %}
 
 					<button type="submit" name="add" id="addToCart" class="button color"><span id="addToCartText">{{ 'products.page.add_to_cart_button' | t }}</span></button>

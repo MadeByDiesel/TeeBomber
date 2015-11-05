@@ -85,7 +85,7 @@
 					<a href="#">Menu</a>
 					{% include 'asset_svg' with 'hamburger_icon' %}
 				</div>
-
+				{% if customer %}
 		    	{% if shop.customer_accounts_enabled %}
 		    		<div class="item">
 		    			{% if customer %}
@@ -108,8 +108,11 @@
 					<span class="count">{{ cart.item_count }}</span>
 				</div>
 
-	        </div>
+				{% else %}
+					<a href="/account/login">Account Login</a>
+				{% endif %}
 
+	      </div>
 			<nav id="menu" role="navigation">
 				<div>
 					{% include 'sidebar_nav-collections' with settings.menu_collections_select %}
@@ -117,6 +120,11 @@
 				</div>
 				<a class="responsive-close" href="#">{% include 'asset_svg' with 'close_icon' %}</a>
 			</nav>
+
+			{% if customer %}
+				<a href="/account/logout">Log Out</a>
+			{% endif %}
+
 
 			<aside id="footer" class="loading">
 				{% include 'footer_social-icons' %}
