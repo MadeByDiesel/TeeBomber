@@ -1,0 +1,19 @@
+{% assign product_img = {{collection_item-blank}} %}
+<a href="#" class="grid-item {{ settings.collections_anim_style }} {{ settings.collections_thumb_style }}">
+
+    <img src="//cdn.shopify.com/s/images/themes/product-{{ product_img | lstrip | rstrip }}.png" alt="">
+
+    <div class="caption">
+
+    	{% if settings.collections_anim_style == 'one' %}
+    		<div class="top"><h2>Dummy product title</h2></div>
+    		<div class="bottom"><strong>{{ '99' | money }}</strong></div>
+		{% elsif settings.collections_anim_style == 'two' %}
+    		<div><h2>Dummy product title</h2><div class="price"><strong>{{ '99' | money }}</strong></div></div>
+		{% elsif settings.collections_anim_style == 'three' %}
+    		<div><div><h2>Dummy product title</h2><div class="price"><strong>{{ '99' | money }}</strong></div></div></div>
+		{% endif %}
+
+	</div>
+
+</a>

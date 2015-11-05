@@ -1,0 +1,211 @@
+{% capture output %}
+
+{% capture bold_master_builder_id %}{% endcapture %}
+{% capture bold_builder_id %}{% endcapture %}
+{% unless item.properties.master_builder == blank and item.properties._master_builder == blank %}
+{% if item.properties.master_builder == blank %}
+{% capture bold_master_builder_id %}{{ item.properties._master_builder }}{% endcapture %}
+{% else %}
+{% capture bold_master_builder_id %}{{ item.properties.master_builder }}{% endcapture %}
+{% endif %}
+{% endunless %}
+{% unless item.properties.builder_id == blank and item.properties._builder_id == blank %}
+{% if item.properties.builder_id == blank %}
+{% capture bold_builder_id %}{{ item.properties._builder_id }}{% endcapture %}
+{% else %}
+{% capture bold_builder_id %}{{ item.properties.builder_id }}{% endcapture %}
+{% endif %}
+{% endunless %}
+
+
+{% comment %}<!-- STEP TWO - PREP MASTER BUILDER PRODUCT -->{% endcomment %}
+{% if boldoptions == 'step2' %}
+{% capture builder%}
+{% if bold_master_builder_id != blank %}
+{% if item.properties.builder_info %}
+{% assign builder = item.properties.builder_info | split: '~~' %}
+{% endif %}
+{% if item.properties._builder_info %}
+{% assign builder = item.properties._builder_info | split: '~~' %}
+{% endif %}
+{% assign item_price = 0 %}
+{% assign item_line_price = 0 %}
+{% for price_item in cart.items %}
+{% capture price_builder_id %}{% endcapture %}
+{% unless price_item.properties.builder_id == blank and price_item.properties._builder_id == blank %}
+{% if price_item.properties.builder_id == blank %}
+{% capture price_builder_id %}{{ price_item.properties._builder_id }}{% endcapture %}
+{% else %}
+{% capture price_builder_id %}{{ price_item.properties.builder_id }}{% endcapture %}
+{% endif %}
+{% endunless %}
+{% unless price_builder_id == blank %}
+{% if price_builder_id == bold_builder_id %}
+{% capture temp %}{{ item_price | plus: price_item.price }}{% endcapture %}
+{% assign item_price = temp %}
+{% capture temp %}{{ item_line_price | plus: price_item.line_price }}{% endcapture %}
+{% assign item_line_price = temp %}
+{% endif %}
+{% endunless %}
+{% endfor %} 
+{% endif %}
+{% endcapture %}
+{% endif %}
+
+
+{% comment %}<!-- STEP THREE - ADD APPROPRIATE CLASSES TO CART ROW -->{% endcomment %}
+{% if boldoptions == 'step3' %}
+{% if bold_master_builder_id == blank %}
+{% if bold_builder_id == blank %}
+bold-row
+{% else %}
+bold-row-{{ bold_builder_id }} item {{ item.product.handle }}
+{% endif %}
+{% else %}
+item bold-row-{{ bold_builder_id }} {{ builder[2] }}
+{% endif %}
+{% endif %}
+
+
+{% comment %}<!-- STEP FOUR - HIDE APPROPRIATE CART ROWS -->{% endcomment %}
+{% if boldoptions == 'step4' %}
+{% if bold_master_builder_id == blank and bold_builder_id != blank %}
+display: none;
+{% endif %}
+{% endif %}
+
+
+{% comment %}<!-- STEP SIX - ADD LINE ITEM PROPERTIES -->{% endcomment %}
+{% if boldoptions == 'step6' %}
+{% if bold_master_builder_id == blank %}
+{% for p in item.properties %}
+{% capture am_i_an_underscore %}{{ p.first | slice: 0, 1 }}{% endcapture %}
+{% capture am_i_a_double_underscore %}{{ p.first | slice: 0, 2 }}{% endcapture %}
+{% if am_i_an_underscore == "_" or am_i_a_double_underscore == "__" %}
+{% assign show_or_not_to_show = true %}
+{% else %}
+{% assign show_or_not_to_show = false %}
+{%endif%}
+{% if p.first == "builder_id" or p.first == "builder_info" or p.first == "master_builder" or p.first == "_builder_id" or p.last == "" or p.first == "_builder_info" or p.first == "_master_builder" or show_or_not_to_show == true %}
+{% if am_i_a_double_underscore == "__" %}
+{{ p.first | slice: 2, p.first.size }}:{{p.last}}
+{% endif %}
+{% else %}
+{% unless p.last == blank %}
+{{ p.first }}:
+{% if p.last contains '/uploads/' %}
+<a class="lightbox" href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+{% else %}
+{{ p.last }}
+{% endif %}
+<br />
+{% endunless %}
+{% endif %}
+{% endfor %}
+{% else %}
+<div class="bold-properties-{{ bold_builder_id }}">
+{% for p in item.properties %}
+{% capture am_i_an_underscore %}{{ p.first | slice: 0, 1 }}{% endcapture %}
+{% capture am_i_a_double_underscore %}{{ p.first | slice: 0, 2 }}{% endcapture %}
+{% if am_i_an_underscore == "_" or am_i_a_double_underscore == "__" %}
+{% assign show_or_not_to_show = true %}
+{% else %}
+{% assign show_or_not_to_show = false %}
+{%endif%}
+{% if p.first == "builder_id" or p.first == "builder_info" or p.first == "master_builder" or p.first == "_builder_id" or p.last == "" or p.first == "_builder_info" or p.first == "_master_builder" or show_or_not_to_show == true %}
+{% if p.first == "builder_info" %}{% assign is_builder=true %}{% endif %}
+{% if am_i_a_double_underscore == "__" %}
+{{ p.first | slice: 2, p.first.size }}:{{p.last}}
+{% endif %}
+{% else %}
+{% unless p.last == blank %}
+{{ p.first }}:
+{% if p.last contains '/uploads/' %}
+<a class="lightbox" href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+{% else %}
+{{ p.last }}
+{% endif %}
+<br />
+{% endunless %}
+{% endif %}
+{% endfor %}
+</div>
+<div id="bold-item-{{ bold_builder_id }}" data-is-builder="{{ is_builder }}" data-handle="{{ item.product.handle }}" data-variant-id="{{ item.variant.id }}" class="bold-edit-item"></div>
+{% endif %}
+{% endif %}
+
+
+{% comment %}<!-- STEP SEVEN - ADD APPROPRIATEAPPROPIATE CLASSES TO QUANTITIES -->{% endcomment %}
+{% if boldoptions == 'step7' %}
+{% if bold_builder_id != blank %}
+{{ bold_builder_id }}_qty 
+{% endif %}
+{% if bold_builder_id != blank %}
+{{ bold_builder_id }}_qty 
+{% endif %}
+{% endif %}
+
+
+{% comment %}<!-- STEP EIGHT - ADD READONLY TO QUANTITIES -->{% endcomment %}
+{% if boldoptions == 'step8' %}
+{% if item.product.metafields.inventory.ShappifyHidden == "true" %} readonly="readonly" {% endif %}
+{% if bold_builder_id != blank %}
+data-product-id="{{ item.product.id }}"
+{% endif %}
+{% if bold_master_builder_id != blank %}
+onchange="update_qty_builder('{{bold_builder_id}}', this);"
+{% endif %}
+{% endif %}
+
+{% comment %}<!-- STEP NINE - ADD APPROPRIATE HREF TO REMOVE BUTTONS -->{% endcomment %}
+{% if boldoptions == 'step9' %}
+{% if bold_master_builder_id == blank %}
+/cart/change?line={{ forloop.index }}&quantity=0
+{% else %}
+#
+{% endif %}
+{% endif %}
+
+
+{% comment %}<!-- STEP TEN - ADD APPROPIATE CLASSES TO REMOVE BUTTONS -->{% endcomment %}
+{% if boldoptions == 'step10' %}
+{% if bold_builder_id != blank %}
+{{ bold_builder_id }}_remove 
+{% endif %}
+{% if bold_master_builder_id != blank %}
+{{ bold_builder_id }}_remove 
+{% endif %}
+{% endif %}
+
+
+{% comment %}<!-- STEP ELEVEN - ADD ONCLICK TO REMOVE BUTTON -->{% endcomment %}
+{% if boldoptions == 'step11' %}
+{% if bold_master_builder_id != blank %}
+onclick="remove_product_builder('{{ bold_builder_id }}');"
+{% endif %}
+{% endif %}
+
+
+{% comment %}<!-- STEP TWELVE - CONVERT ITEM PRICES -->{% endcomment %}
+{% if boldoptions == 'step12' %}
+{% if bold_master_builder_id == blank %}
+{{ item.price | money }}
+{% else %}
+{{ item_price | money }}
+{% endif %}
+{% endif %}
+
+
+{% comment %}<!-- STEP THIRTEEN - CONVERT ITEM LINE PRICES -->{% endcomment %}
+{% if boldoptions == 'step13' %}
+{% if bold_master_builder_id == blank %}
+{{ item.line_price | money }}
+{% else %}
+{{ item_line_price | money }}
+{% endif %}
+{% endif %}
+
+
+
+{% endcapture %}
+{{ output | strip_newlines }}

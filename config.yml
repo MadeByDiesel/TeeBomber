@@ -1,0 +1,12 @@
+---
+:api_key: 5aca2b4f8fd5f51413ba32f838f8c8f6
+:password: f46b89392cb7c23a0274d2c5c2526e3f
+:store: teebomber.myshopify.com
+:theme_id: 
+:whitelist_files:
+- layout/
+- assets/
+- config/
+- snippets/
+- templates/
+- locales/

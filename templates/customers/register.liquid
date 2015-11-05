@@ -1,0 +1,29 @@
+<div id="page-content" class="clearfix">
+
+	<header class="page-title">
+		<h1 class="title">{{ 'customers.register_page.title' | t }}</h1>
+	</header>
+
+	{% form 'create_customer' %}
+
+		{% include 'form-errors' %}
+
+		<label for="first_name" class="hidden-label">{{ 'customers.register_page.form.first_name_label' | t }}</label>
+		<input type="text" value="" name="customer[first_name]" id="first_name" placeholder="{{ 'customers.register_page.form.first_name_label' | t }}" {% if form.errors contains "first_name" %} class="error"{% endif %} autocapitalize="words" autofocus>
+
+		<label for="last_name" class="hidden-label">{{ 'customers.register_page.form.last_name_label' | t }}</label>
+		<input type="text" value="" name="customer[last_name]" id="last_name" placeholder="{{ 'customers.register_page.form.last_name_label' | t }}" {% if form.errors contains "last_name" %} class="error"{% endif %} autocapitalize="words">
+
+		<label for="email" class="hidden-label">{{ 'customers.register_page.form.email_label' | t }}</label>
+		<input type="email" value="" name="customer[email]" id="email" placeholder="{{ 'customers.register_page.form.email_label' | t }}" {% if form.errors contains "email" %} class="error"{% endif %} autocorrect="off" autocapitalize="off">
+
+		<label for="password" class="hidden-label">{{ 'customers.register_page.form.password_label' | t }}</label>
+		<input type="password" value="" name="customer[password]" id="create_password" placeholder="{{ 'customers.register_page.form.password_label' | t }}" {% if form.errors contains "password" %} class="error"{% endif %}>
+
+		<input type="submit" value="{{ 'customers.register_page.form.submit_button' | t }}" class="button color">
+
+		<div class="right"><p>or <a href="{{ shop.url }}">{{ 'customers.register_page.return_to_store_link' | t }}</a></div>
+
+	{% endform %}
+
+</div>

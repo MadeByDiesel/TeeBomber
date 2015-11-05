@@ -1,0 +1,48 @@
+{% if collection.image %}
+
+	{% capture collection_image %} {{ collection | img_url: '1024x1024' }} {% endcapture %}
+	{% capture collection_alt %} {{ collection.image.alt }} {% endcapture %}
+
+{% else %}
+
+	{% if collection.products.size == 0 %}
+
+		{% capture collection_image %} {{ 'product-default.png' | asset_url }} {% endcapture %}
+
+	{% else %}
+
+		{% capture collection_image %} {{ collection.products.first | img_url: '1024x1024' }} {% endcapture %}
+
+	{% endif %}
+
+	{% capture collection_alt %} {{ collection.title.escape }} {% endcapture %}
+
+{% endif %}
+
+<a href="{{ collection.url }}" class="grid-item {{ settings.collections_anim_style }} {{ settings.collections_thumb_style }}">
+
+	<img src="{{ collection_image }}" alt="{{ collection_alt | escape }}">
+
+    <div class="caption">
+
+    	{% if settings.collections_anim_style == 'one' %}
+
+	    	<div class="top">
+		    	<h2>{{ collection_title}}</h2>
+		    </div>
+
+		    <div class="bottom">
+		    	<span class="info">{{ 'collections.view_products' | t }} &rarr;</span>
+		    </div>
+
+    	{% else %}
+
+    		<div>
+    			<div><h2>{{ collection_title}}</h2></div>
+    		</div>
+
+    	{% endif %}
+
+	</div>
+
+</a>

@@ -1,0 +1,21 @@
+{% assign search_type = {{main_search}} %}
+
+{% if search_type == 'primary' %}
+
+	{% capture placeholder_text %} {{ 'search.overlay.input_text' | t }} {% endcapture %}
+	{% capture button_text %} {% include 'asset_svg' with 'search_icon' %} {% endcapture %}
+
+{% else %}
+
+	{% capture placeholder_text %} {{ 'search.page.form_label' | t }} {% endcapture %}
+	{% capture button_text %} {{ 'search.page.form_button' | t }} {% endcapture %}
+
+{% endif %}
+
+<form action="/search" method="get" class="input-group search-bar" role="search">
+	<input type="search" name="q" value="" placeholder="{{ placeholder_text }}">
+	{% if settings.search_products %}
+		<input type="hidden" name="type" value="product" />
+	{% endif %}
+	<button type="submit">{{ button_text }}</button>
+</form>

@@ -1,0 +1,39 @@
+<div class="option">
+	<label for="filter-by">{{ 'collections.filter_dropdown.filter_label' | t }}</label>
+	<select name="filter-by" id="filter-by">
+    	<option value="">{{ 'collections.filter_dropdown.filter_all' | t }}</option>
+	    {% for tag in collection.all_tags %}
+		    {% if current_tags contains tag %}
+		    	<option value="{{ tag | handle }}" selected>{{ tag }}</option>
+		    {% else %}
+		    	<option value="{{ tag | handle }}">{{ tag }}</option>
+		    {% endif %}
+	    {% endfor %}
+	</select>
+</div>
+
+<script type="text/javascript">
+
+	var $filters = jQuery('#filter-by');
+	$filters.change(function() {
+		var newTags = [];
+		$filters.each(function() { 
+			if (jQuery(this).val()) {
+				newTags.push(jQuery(this).val());
+			}
+		});
+		if (newTags.length) {
+			var query = newTags.join('+');
+			window.location.href = jQuery('{{ 'tag' | link_to_tag: 'tag' }}').attr('href').replace('tag', query);
+		} else {
+			{% if collection.handle %}
+				window.location.href = '/collections/{{ collection.handle }}';
+			{% elsif collection.products.first.type == collection.title %}
+				window.location.href = '{{ collection.title | url_for_type }}';
+			{% elsif collection.products.first.vendor == collection.title %}
+				window.location.href = '{{ collection.title | url_for_vendor }}';
+			{% endif %}
+		}
+	});
+
+</script>

@@ -1,0 +1,14 @@
+{% for link in linklists.footer.links %}
+	<a class="footer-link" href="{{ link.url }}">{{ link.title }}</a>
+{% endfor %}
+
+{% if settings.show_payment and shop.enabled_payment_types != empty %}
+	<div class="pay-icons">
+		{% for type in shop.enabled_payment_types %}
+			{% include 'asset_svg' with type %}
+		{% endfor %}
+	</div>
+{% endif %}
+
+<p>{{ 'general.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} <a href="/">{{ shop.name }}</a></p>
+<p><a href="http://madebydiesel.com">Made By Diesel</a></p>

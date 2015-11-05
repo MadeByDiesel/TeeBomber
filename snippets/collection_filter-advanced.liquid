@@ -1,0 +1,67 @@
+{% if collection.all_tags.size > 0 %}
+
+	{% assign categories = '' %}
+	{% for tag in collection.all_tags %}
+		{% if tag contains '_' %}
+			{% capture categories %}{% unless categories == blank  %}{{ categories }}|{% endunless %}{{ tag | split: '_' | first }}{% endcapture %}
+		{% endif %}
+	{% endfor %}
+	{% assign cat_array = categories | split: '|' | uniq %}
+
+    {% for cat_item in cat_array %}
+
+   		<div class="option">
+			<label for="filter-by">{{ cat_item }}:</label>
+			<select name="filter-by" class="filter-by">
+
+    			<option value="">{{ 'collections.filter_dropdown.filter_none' | t }}</option>
+
+				{% for tag in collection.all_tags %}
+
+					{% assign cat = tag | split: '_' | first %} 
+
+					{% if cat != tag and cat_item == cat %}
+
+						{% if current_tags contains tag %}
+                  			<option class="advanced-filter active-filter" data-group="{{ cat_item }}" value="{{ tag | handle }}" selected>{{ tag | remove_first: cat_item | remove_first: '_' | link_to_remove_tag: tag }}</option>
+                		{% else %}
+                 			<option class="advanced-filter" data-group="{{ cat_item }}" value="{{ tag | handle }}">{{ tag | remove_first: cat_item | remove_first: '_' | link_to_add_tag: tag }}</option>
+                		{% endif %}
+
+              		{% endif %}
+
+            	{% endfor %}
+
+			</select>
+   		</div>
+
+	{% endfor %}
+
+	<script type="text/javascript">
+
+		var $filters = jQuery('.filter-by');
+
+		$filters.change(function() {
+			var newTags = [];
+			$filters.each(function() { 
+				if (jQuery(this).val()) {
+					newTags.push(jQuery(this).val());
+				}
+			});
+			if (newTags.length) {
+				var query = newTags.join('+');
+				window.location.href = jQuery('{{ 'tag' | link_to_tag: 'tag' }}').attr('href').replace('tag', query);
+			} else {
+				{% if collection.handle %}
+					window.location.href = '/collections/{{ collection.handle }}';
+				{% elsif collection.products.first.type == collection.title %}
+					window.location.href = '{{ collection.title | url_for_type }}';
+				{% elsif collection.products.first.vendor == collection.title %}
+					window.location.href = '{{ collection.title | url_for_vendor }}';
+				{% endif %}
+			}
+		});
+
+	</script>
+
+{% endif %}

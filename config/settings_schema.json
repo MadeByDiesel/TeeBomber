@@ -1,0 +1,2348 @@
+[
+  {
+    "name": "theme_info",
+    "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0767\/8751\/t\/3\/assets\/logo_krownthemes.png?12893072975524714337",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Kingdom Theme"
+      },
+      {
+        "type": "paragraph",
+        "content": "v1.2.1"
+      },
+      {
+        "type": "paragraph",
+        "content": "If you have any issues or questions related to our theme, please visit our dedicated support website: [shopify-support.krownthemes.com](http:\/\/shopify-support.krownthemes.com\/)"
+      }
+    ]
+  },
+  {
+    "name": "Branding",
+    "settings": [
+      {
+        "type": "select",
+        "id": "logo_type",
+        "label": "Logo type",
+        "options": [
+          {
+            "value": "text",
+            "label": "Text"
+          },
+          {
+            "value": "img",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "logo_x2.png",
+        "label": "Logo image",
+        "max-width": 500,
+        "max-height": 1000,
+        "info": "max 500px wide"
+      },
+      {
+        "type": "text",
+        "id": "logo_width",
+        "label": "Logo width (in pixels)",
+        "default": "100"
+      },
+      {
+        "type": "checkbox",
+        "id": "favicon_image",
+        "label": "Enable favicon"
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "label": "Favicon",
+        "info": "16 x 16 PNG file",
+        "max-width": 16,
+        "max-height": 16
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "select",
+        "id": "typography_headings",
+        "label": "Headings",
+        "options": [
+          {
+            "value": "Arvo",
+            "label": "Arvo",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Dosis",
+            "label": "Dosis",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Inconsolata",
+            "label": "Inconsolata",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Libre Baskerville'",
+            "label": "Libre Baskerville",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Life Savers'",
+            "label": "Life Savers",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Lora",
+            "label": "Lora",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Montserrat",
+            "label": "Montserrat",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Merriweather San'",
+            "label": "Merriweather San",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Noto Serif'",
+            "label": "Noto Serif",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Open Sans'",
+            "label": "Open Sans",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Raleway",
+            "label": "Raleway",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Patrick Hand SC'",
+            "label": "Patrick Hand SC",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Quicksand",
+            "label": "Quicksand",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Reenie Beanie'",
+            "label": "Reenie Beanie",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Condensed'",
+            "label": "Roboto Condensed",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Slab'",
+            "label": "Roboto Slab",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sacramento",
+            "label": "Sacramento",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sanchez",
+            "label": "Sanchez",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Helvetica,Arial\/*regular*\/",
+            "label": "Helvetica, Arial",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Cambria,Georgia\/*regular*\/",
+            "label": "Cambria, Georgia",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Garamond,'Hoefler Text'\/*regular*\/",
+            "label": "Garamond, Hoefler Text",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Tahoma,Geneva\/*regular*\/",
+            "label": "Tahoma, Geneva",
+            "group": "Regular Fonts"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_menus",
+        "label": "Menus",
+        "options": [
+          {
+            "value": "Arvo",
+            "label": "Arvo",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Dosis",
+            "label": "Dosis",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Inconsolata",
+            "label": "Inconsolata",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Libre Baskerville'",
+            "label": "Libre Baskerville",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Life Savers'",
+            "label": "Life Savers",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Lora",
+            "label": "Lora",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Montserrat",
+            "label": "Montserrat",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Merriweather San'",
+            "label": "Merriweather San",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Noto Serif'",
+            "label": "Noto Serif",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Open Sans'",
+            "label": "Open Sans",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Raleway",
+            "label": "Raleway",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Patrick Hand SC'",
+            "label": "Patrick Hand SC",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Quicksand",
+            "label": "Quicksand",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Reenie Beanie'",
+            "label": "Reenie Beanie",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Condensed'",
+            "label": "Roboto Condensed",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Slab'",
+            "label": "Roboto Slab",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sacramento",
+            "label": "Sacramento",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sanchez",
+            "label": "Sanchez",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Helvetica,Arial\/*regular*\/",
+            "label": "Helvetica, Arial",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Cambria,Georgia\/*regular*\/",
+            "label": "Cambria, Georgia",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Garamond,'Hoefler Text'\/*regular*\/",
+            "label": "Garamond, Hoefler Text",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Tahoma,Geneva\/*regular*\/",
+            "label": "Tahoma, Geneva",
+            "group": "Regular Fonts"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_body",
+        "label": "Body",
+        "options": [
+          {
+            "value": "Arvo",
+            "label": "Arvo",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Dosis",
+            "label": "Dosis",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Inconsolata",
+            "label": "Inconsolata",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Libre Baskerville'",
+            "label": "Libre Baskerville",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Life Savers'",
+            "label": "Life Savers",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Lora",
+            "label": "Lora",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Montserrat",
+            "label": "Montserrat",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Merriweather San'",
+            "label": "Merriweather San",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Noto Serif'",
+            "label": "Noto Serif",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Open Sans'",
+            "label": "Open Sans",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Raleway",
+            "label": "Raleway",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Patrick Hand SC'",
+            "label": "Patrick Hand SC",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Quicksand",
+            "label": "Quicksand",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Reenie Beanie'",
+            "label": "Reenie Beanie",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Condensed'",
+            "label": "Roboto Condensed",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Slab'",
+            "label": "Roboto Slab",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sacramento",
+            "label": "Sacramento",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sanchez",
+            "label": "Sanchez",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Helvetica,Arial\/*regular*\/",
+            "label": "Helvetica, Arial",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Cambria,Georgia\/*regular*\/",
+            "label": "Cambria, Georgia",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Garamond,'Hoefler Text'\/*regular*\/",
+            "label": "Garamond, Hoefler Text",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Tahoma,Geneva\/*regular*\/",
+            "label": "Tahoma, Geneva",
+            "group": "Regular Fonts"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Slideshow"
+      },
+      {
+        "type": "select",
+        "id": "typography_label1",
+        "label": "Label 1 font family \/ style",
+        "options": [
+          {
+            "value": "Arvo",
+            "label": "Arvo",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Dosis",
+            "label": "Dosis",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Inconsolata",
+            "label": "Inconsolata",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Libre Baskerville'",
+            "label": "Libre Baskerville",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Life Savers'",
+            "label": "Life Savers",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Lora",
+            "label": "Lora",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Montserrat",
+            "label": "Montserrat",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Merriweather San'",
+            "label": "Merriweather San",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Noto Serif'",
+            "label": "Noto Serif",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Open Sans'",
+            "label": "Open Sans",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Raleway",
+            "label": "Raleway",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Patrick Hand SC'",
+            "label": "Patrick Hand SC",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Quicksand",
+            "label": "Quicksand",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Reenie Beanie'",
+            "label": "Reenie Beanie",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Condensed'",
+            "label": "Roboto Condensed",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Slab'",
+            "label": "Roboto Slab",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sacramento",
+            "label": "Sacramento",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sanchez",
+            "label": "Sanchez",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Helvetica,Arial\/*regular*\/",
+            "label": "Helvetica, Arial",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Cambria,Georgia\/*regular*\/",
+            "label": "Cambria, Georgia",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Garamond,'Hoefler Text'\/*regular*\/",
+            "label": "Garamond, Hoefler Text",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Tahoma,Geneva\/*regular*\/",
+            "label": "Tahoma, Geneva",
+            "group": "Regular Fonts"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_label1_style",
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "italic",
+            "label": "Italic"
+          },
+          {
+            "value": "bold",
+            "label": "Bold"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_label1_size",
+        "label": "Label 1 font size",
+        "options": [
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "14",
+            "label": "14"
+          },
+          {
+            "value": "18",
+            "label": "18"
+          },
+          {
+            "value": "24",
+            "label": "24"
+          },
+          {
+            "value": "28",
+            "label": "28"
+          },
+          {
+            "value": "32",
+            "label": "32"
+          },
+          {
+            "value": "44",
+            "label": "44"
+          },
+          {
+            "value": "56",
+            "label": "56"
+          },
+          {
+            "value": "68",
+            "label": "68"
+          },
+          {
+            "value": "80",
+            "label": "80"
+          },
+          {
+            "value": "96",
+            "label": "96"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_label2",
+        "label": "Label 2 font family \/ style",
+        "options": [
+          {
+            "value": "Arvo",
+            "label": "Arvo",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Dosis",
+            "label": "Dosis",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Inconsolata",
+            "label": "Inconsolata",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Libre Baskerville'",
+            "label": "Libre Baskerville",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Life Savers'",
+            "label": "Life Savers",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Lora",
+            "label": "Lora",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Montserrat",
+            "label": "Montserrat",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Merriweather San'",
+            "label": "Merriweather San",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Noto Serif'",
+            "label": "Noto Serif",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Open Sans'",
+            "label": "Open Sans",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Raleway",
+            "label": "Raleway",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Patrick Hand SC'",
+            "label": "Patrick Hand SC",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Quicksand",
+            "label": "Quicksand",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Reenie Beanie'",
+            "label": "Reenie Beanie",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Condensed'",
+            "label": "Roboto Condensed",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Slab'",
+            "label": "Roboto Slab",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sacramento",
+            "label": "Sacramento",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sanchez",
+            "label": "Sanchez",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Helvetica,Arial\/*regular*\/",
+            "label": "Helvetica, Arial",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Cambria,Georgia\/*regular*\/",
+            "label": "Cambria, Georgia",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Garamond,'Hoefler Text'\/*regular*\/",
+            "label": "Garamond, Hoefler Text",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Tahoma,Geneva\/*regular*\/",
+            "label": "Tahoma, Geneva",
+            "group": "Regular Fonts"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_label2_style",
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "italic",
+            "label": "Italic"
+          },
+          {
+            "value": "bold",
+            "label": "Bold"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_label2_size",
+        "label": "Label 2 font size",
+        "options": [
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "14",
+            "label": "14"
+          },
+          {
+            "value": "18",
+            "label": "18"
+          },
+          {
+            "value": "24",
+            "label": "24"
+          },
+          {
+            "value": "28",
+            "label": "28"
+          },
+          {
+            "value": "32",
+            "label": "32"
+          },
+          {
+            "value": "44",
+            "label": "44"
+          },
+          {
+            "value": "56",
+            "label": "56"
+          },
+          {
+            "value": "68",
+            "label": "68"
+          },
+          {
+            "value": "80",
+            "label": "80"
+          },
+          {
+            "value": "96",
+            "label": "96"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_label3",
+        "label": "Label 3 font family \/ style",
+        "options": [
+          {
+            "value": "Arvo",
+            "label": "Arvo",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Dosis",
+            "label": "Dosis",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Inconsolata",
+            "label": "Inconsolata",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Libre Baskerville'",
+            "label": "Libre Baskerville",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Life Savers'",
+            "label": "Life Savers",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Lora",
+            "label": "Lora",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Montserrat",
+            "label": "Montserrat",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Merriweather San'",
+            "label": "Merriweather San",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Noto Serif'",
+            "label": "Noto Serif",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Open Sans'",
+            "label": "Open Sans",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Raleway",
+            "label": "Raleway",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Patrick Hand SC'",
+            "label": "Patrick Hand SC",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Quicksand",
+            "label": "Quicksand",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Reenie Beanie'",
+            "label": "Reenie Beanie",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Condensed'",
+            "label": "Roboto Condensed",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "'Roboto Slab'",
+            "label": "Roboto Slab",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sacramento",
+            "label": "Sacramento",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Sanchez",
+            "label": "Sanchez",
+            "group": "Custom Fonts"
+          },
+          {
+            "value": "Helvetica,Arial\/*regular*\/",
+            "label": "Helvetica, Arial",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Cambria,Georgia\/*regular*\/",
+            "label": "Cambria, Georgia",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Garamond,'Hoefler Text'\/*regular*\/",
+            "label": "Garamond, Hoefler Text",
+            "group": "Regular Fonts"
+          },
+          {
+            "value": "Tahoma,Geneva\/*regular*\/",
+            "label": "Tahoma, Geneva",
+            "group": "Regular Fonts"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_label3_style",
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "italic",
+            "label": "Italic"
+          },
+          {
+            "value": "bold",
+            "label": "Bold"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "typography_label3_size",
+        "label": "Label 3 font size",
+        "options": [
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "14",
+            "label": "14"
+          },
+          {
+            "value": "18",
+            "label": "18"
+          },
+          {
+            "value": "24",
+            "label": "24"
+          },
+          {
+            "value": "28",
+            "label": "28"
+          },
+          {
+            "value": "32",
+            "label": "32"
+          },
+          {
+            "value": "44",
+            "label": "44"
+          },
+          {
+            "value": "56",
+            "label": "56"
+          },
+          {
+            "value": "68",
+            "label": "68"
+          },
+          {
+            "value": "80",
+            "label": "80"
+          },
+          {
+            "value": "96",
+            "label": "96"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Subsets"
+      },
+      {
+        "type": "checkbox",
+        "id": "typography_set_cyrillic",
+        "label": "Load cyrillic subset"
+      },
+      {
+        "type": "checkbox",
+        "id": "typography_set_cyrillic-extended",
+        "label": "Load cyrillic extended subset"
+      },
+      {
+        "type": "checkbox",
+        "id": "typography_set_devengari",
+        "label": "Load devengari subset"
+      },
+      {
+        "type": "checkbox",
+        "id": "typography_set_greek",
+        "label": "Load greek subset"
+      },
+      {
+        "type": "checkbox",
+        "id": "typography_set_greek-extended",
+        "label": "Load greek extended subset"
+      },
+      {
+        "type": "checkbox",
+        "id": "typography_set_khmer",
+        "label": "Load khmer subset"
+      },
+      {
+        "type": "checkbox",
+        "id": "typography_set_latin",
+        "label": "Load latin subset"
+      },
+      {
+        "type": "checkbox",
+        "id": "typography_set_latin-extended",
+        "label": "Load latin extended subset"
+      },
+      {
+        "type": "checkbox",
+        "id": "typography_set_vietnamese",
+        "label": "Load vietnamese subset"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sidebar"
+      },
+      {
+        "type": "color",
+        "id": "sidebar_bg",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "logo_color",
+        "label": "Text logo color"
+      },
+      {
+        "type": "color",
+        "id": "menus_1",
+        "label": "Collections navigation",
+        "default": "#1d1d1d"
+      },
+      {
+        "type": "color",
+        "id": "menus_3",
+        "label": "Main navigation",
+        "default": "#9e9e9e"
+      },
+      {
+        "type": "color",
+        "id": "menus_5",
+        "label": "Any menu when rolled over",
+        "default": "#9d8347"
+      },
+      {
+        "type": "color",
+        "id": "menus_6",
+        "label": "Any menu when selected",
+        "default": "#1d1d1d"
+      },
+      {
+        "type": "color",
+        "id": "sidebar_text",
+        "label": "Text and Icons",
+        "default": "#7d7d7d"
+      },
+      {
+        "type": "color",
+        "id": "sidebar_links",
+        "label": "Links",
+        "default": "#9d8347"
+      },
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "color",
+        "id": "page_bg",
+        "label": "Background",
+        "default": "#f9f9f9"
+      },
+      {
+        "type": "color",
+        "id": "type_headings",
+        "label": "Headings",
+        "default": "#1d1d1d"
+      },
+      {
+        "type": "color",
+        "id": "type_body",
+        "label": "Regular text",
+        "default": "#7d7d7d"
+      },
+      {
+        "type": "color",
+        "id": "type_additional",
+        "label": "Additional text",
+        "default": "#9d9d9d"
+      },
+      {
+        "type": "color",
+        "id": "type_links",
+        "label": "Links",
+        "default": "#9d8347"
+      },
+      {
+        "type": "header",
+        "content": "Forms & buttons"
+      },
+      {
+        "type": "color",
+        "id": "form_back",
+        "label": "Inputs background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "form_border",
+        "label": "Inputs border",
+        "default": "#ffffff"
+      },
+      {
+        "type": "select",
+        "id": "form_style",
+        "label": "Inputs style",
+        "options": [
+          {
+            "value": "6px",
+            "label": "Rounded"
+          },
+          {
+            "value": "0",
+            "label": "Square"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "id": "form_label",
+        "label": "Inputs label",
+        "default": "#7f7f7f"
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Main buttons",
+        "default": "#b89955"
+      },
+      {
+        "type": "color",
+        "id": "button_dark",
+        "label": "Secondary buttons",
+        "default": "#1d1d1d"
+      },
+      {
+        "type": "header",
+        "content": "Collections & Products"
+      },
+      {
+        "type": "color",
+        "id": "collections_thumb_bg",
+        "label": "Product hover",
+        "default": "#fff"
+      },
+      {
+        "type": "select",
+        "id": "collections_thumb_style",
+        "label": "Product text",
+        "options": [
+          {
+            "value": "light",
+            "label": "Dark"
+          },
+          {
+            "value": "dark",
+            "label": "Light"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "id": "gallery_background_color",
+        "label": "Product gallery background",
+        "default": "#ebebeb"
+      }
+    ]
+  },
+  {
+    "name": "Sidebar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Menus"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_collections_select",
+        "label": "Collections menu"
+      },
+      {
+        "type": "header",
+        "content": "Social icons",
+        "info": "Paste the full URL's to the desired social networks. Empty fields will simply not appear."
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "Twitter",
+        "info": "https:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook",
+        "info": "https:\/\/www.facebook.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_google",
+        "label": "Google+",
+        "info": "https:\/\/plus.google.com\/+shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube",
+        "info": "https:\/\/www.youtube.com\/user\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo",
+        "label": "Vimeo",
+        "info": "https:\/\/vimeo.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest",
+        "label": "Pinterest",
+        "info": "https:\/\/www.pinterest.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr",
+        "label": "Tumblr",
+        "info": "http:\/\/shopify.tumblr.com"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram",
+        "info": "https:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin",
+        "label": "LinkedIn",
+        "info": "https:\/\/www.linkedin.com\/company\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_flickr",
+        "label": "Flickr",
+        "info": "https:\/\/www.flickr.com\/photos\/shopify\/"
+      },
+      {
+        "type": "text",
+        "id": "social_email",
+        "label": "Email",
+        "info": "mailto:contact@shopify.com"
+      },
+      {
+        "type": "header",
+        "content": "Payment icons"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment",
+        "label": "Show payment icons",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Homepage - slideshow",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Show a fullscreen slideshow right at the top of your homepage."
+      },
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "carousel_enable",
+        "label": "Show carousel on homepage"
+      },
+      {
+        "type": "select",
+        "id": "carousel_transition",
+        "label": "Transition",
+        "options": [
+          {
+            "value": "slide",
+            "label": "Slide"
+          },
+          {
+            "value": "fade",
+            "label": "Fade"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "carousel_autoplay",
+        "label": "Autoplay",
+        "options": [
+          {
+            "value": "true",
+            "label": "Enabled"
+          },
+          {
+            "value": "false",
+            "label": "Disabled"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "carousel_timer",
+        "label": "Autoplay speed",
+        "options": [
+          {
+            "value": "4",
+            "label": "4 sec"
+          },
+          {
+            "value": "5",
+            "label": "5 sec"
+          },
+          {
+            "value": "6",
+            "label": "6 sec"
+          },
+          {
+            "value": "7",
+            "label": "7 sec"
+          },
+          {
+            "value": "8",
+            "label": "8 sec"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Slide 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide1_show",
+        "label": "Show slide"
+      },
+      {
+        "type": "image",
+        "id": "slide1_img.jpg",
+        "label": "Image",
+        "max-width": 1920,
+        "info": "Recommended size: 1920x1080"
+      },
+      {
+        "type": "select",
+        "id": "slide1_img_style",
+        "label": "Image type",
+        "options": [
+          {
+            "value": "light",
+            "label": "Light"
+          },
+          {
+            "value": "dark",
+            "label": "Dark"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "slide1_img_url",
+        "label": "Image URL"
+      },
+      {
+        "type": "select",
+        "id": "slide1_labels_pos",
+        "label": "Labels position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "slide1_label1",
+        "label": "Label 1"
+      },
+      {
+        "type": "text",
+        "id": "slide1_label2",
+        "label": "Label 2"
+      },
+      {
+        "type": "text",
+        "id": "slide1_label3",
+        "label": "Label 3"
+      },
+      {
+        "type": "text",
+        "id": "slide1_button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "text",
+        "id": "slide1_button_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "header",
+        "content": "Slide 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide2_show",
+        "label": "Show slide"
+      },
+      {
+        "type": "image",
+        "id": "slide2_img.jpg",
+        "label": "Image",
+        "max-width": 1920,
+        "info": "Recommended size: 1920x1080"
+      },
+      {
+        "type": "select",
+        "id": "slide2_img_style",
+        "label": "Image type",
+        "options": [
+          {
+            "value": "light",
+            "label": "Light"
+          },
+          {
+            "value": "dark",
+            "label": "Dark"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "slide2_img_url",
+        "label": "Image URL"
+      },
+      {
+        "type": "select",
+        "id": "slide2_labels_pos",
+        "label": "Labels position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "slide2_label1",
+        "label": "Label 1"
+      },
+      {
+        "type": "text",
+        "id": "slide2_label2",
+        "label": "Label 2"
+      },
+      {
+        "type": "text",
+        "id": "slide2_label3",
+        "label": "Label 3"
+      },
+      {
+        "type": "text",
+        "id": "slide2_button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "text",
+        "id": "slide2_button_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "header",
+        "content": "Slide 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide3_show",
+        "label": "Show slide",
+        "info": "Recommended size: 1920x1080"
+      },
+      {
+        "type": "image",
+        "id": "slide3_img.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "slide3_img_style",
+        "label": "Image type",
+        "options": [
+          {
+            "value": "light",
+            "label": "Light"
+          },
+          {
+            "value": "dark",
+            "label": "Dark"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "slide3_img_url",
+        "label": "Image URL"
+      },
+      {
+        "type": "select",
+        "id": "slide3_labels_pos",
+        "label": "Labels position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "slide3_label1",
+        "label": "Label 1"
+      },
+      {
+        "type": "text",
+        "id": "slide3_label2",
+        "label": "Label 2"
+      },
+      {
+        "type": "text",
+        "id": "slide3_label3",
+        "label": "Label 3"
+      },
+      {
+        "type": "text",
+        "id": "slide3_button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "text",
+        "id": "slide3_button_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "header",
+        "content": "Slide 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "slide4_show",
+        "label": "Show slide"
+      },
+      {
+        "type": "image",
+        "id": "slide4_img.jpg",
+        "label": "Image",
+        "info": "Recommended size: 1920x1080"
+      },
+      {
+        "type": "select",
+        "id": "slide4_img_style",
+        "label": "Image type",
+        "options": [
+          {
+            "value": "light",
+            "label": "Light"
+          },
+          {
+            "value": "dark",
+            "label": "Dark"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "slide4_img_url",
+        "label": "Image URL"
+      },
+      {
+        "type": "select",
+        "id": "slide4_labels_pos",
+        "label": "Labels position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "slide4_label1",
+        "label": "Label 1"
+      },
+      {
+        "type": "text",
+        "id": "slide4_label2",
+        "label": "Label 2"
+      },
+      {
+        "type": "text",
+        "id": "slide4_label3",
+        "label": "Label 3"
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "text",
+        "id": "slide4_button_url",
+        "label": "Button URL"
+      }
+    ]
+  },
+  {
+    "name": "Homepage - featured collections",
+    "settings": [
+      {
+        "type": "radio",
+        "id": "home_list_enable",
+        "label": "Show collections on the homepage",
+        "options": [
+          {
+            "value": "no",
+            "label": "Don't show"
+          },
+          {
+            "value": "collections",
+            "label": "Automatic (up to 6)"
+          },
+          {
+            "value": "collections-manual",
+            "label": "Manual (select below)"
+          }
+        ]
+      },
+      {
+        "type": "collection",
+        "id": "home_collections_select_1"
+      },
+      {
+        "type": "collection",
+        "id": "home_collections_select_2"
+      },
+      {
+        "type": "collection",
+        "id": "home_collections_select_3"
+      },
+      {
+        "type": "collection",
+        "id": "home_collections_select_4"
+      },
+      {
+        "type": "collection",
+        "id": "home_collections_select_5"
+      },
+      {
+        "type": "collection",
+        "id": "home_collections_select_6"
+      }
+    ]
+  },
+  {
+    "name": "Homepage - featured products",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "home_list_products_enable",
+        "label": "Show products on the homepage"
+      },
+      {
+        "type": "collection",
+        "id": "home_collections_select",
+        "label": "Select collection for shown products"
+      },
+      {
+        "type": "select",
+        "id": "home_list_products_max",
+        "label": "Maximum number of products shown",
+        "options": [
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "16",
+            "label": "16"
+          },
+          {
+            "value": "20",
+            "label": "20"
+          },
+          {
+            "value": "24",
+            "label": "24"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Homepage - featured content",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Pages"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_page_enable",
+        "label": "Show a page on the homepage"
+      },
+      {
+        "type": "page",
+        "id": "home_page_select",
+        "label": "Select page to showcase"
+      },
+      {
+        "type": "header",
+        "content": "Blogs"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_blog_enable",
+        "label": "Show blog posts on the homepage"
+      },
+      {
+        "type": "text",
+        "id": "home_blog_max",
+        "label": "Max number of blog posts",
+        "default": "3"
+      },
+      {
+        "type": "blog",
+        "id": "home_blog_select",
+        "label": "Select blog to showcase"
+      }
+    ]
+  },
+  {
+    "name": "Collections",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "collection_show_description",
+        "label": "Display collection image and description",
+        "default": true,
+        "info": "Both image and description are required for the info to appear on the page"
+      },
+      {
+        "type": "select",
+        "id": "collection_pages",
+        "label": "Products per page",
+        "options": [
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "16",
+            "label": "16"
+          },
+          {
+            "value": "20",
+            "label": "20"
+          },
+          {
+            "value": "24",
+            "label": "24"
+          },
+          {
+            "value": "30",
+            "label": "30"
+          },
+          {
+            "value": "36",
+            "label": "36"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Top bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_title_enabled",
+        "label": "Show collection title"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_filtering_enabled",
+        "label": "Show filtering options"
+      },
+      {
+        "type": "select",
+        "id": "collection_filtering_type",
+        "label": "Filtering type",
+        "options": [
+          {
+            "value": "by-tags",
+            "label": "Filter by tags"
+          },
+          {
+            "value": "by-groups",
+            "label": "Filter by groups"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_sorting_enabled",
+        "label": "Show sorting options"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_sharing_enabled",
+        "label": "Show sharing button"
+      },
+      {
+        "type": "header",
+        "content": "Thumbnails"
+      },
+      {
+        "type": "select",
+        "id": "collections_size",
+        "label": "Size",
+        "options": [
+          {
+            "value": "small",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "collections_border",
+        "label": "Border",
+        "options": [
+          {
+            "value": "no",
+            "label": "No border"
+          },
+          {
+            "value": "true tiny",
+            "label": "Tiny"
+          },
+          {
+            "value": "true",
+            "label": "Normal"
+          },
+          {
+            "value": "true large",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "collections_anim_style",
+        "label": "Caption style",
+        "options": [
+          {
+            "value": "one",
+            "label": "Overlay left aligned"
+          },
+          {
+            "value": "two",
+            "label": "Below image"
+          },
+          {
+            "value": "three",
+            "label": "Overlay centered aligned"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Product",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "breadcrumb_enabled",
+        "label": "Show breadcrumb"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_vendor_enabled",
+        "label": "Show vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "truncated_description",
+        "label": "Show truncated description"
+      },
+      {
+        "type": "select",
+        "id": "truncated_description_lines",
+        "label": "Number of truncated lines",
+        "options": [
+          {
+            "value": "123",
+            "label": "5"
+          },
+          {
+            "value": "173",
+            "label": "7"
+          },
+          {
+            "value": "217",
+            "label": "9"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "quantity_selector",
+        "label": "Show quantity selector"
+      },
+      {
+        "type": "select",
+        "id": "cart_action",
+        "label": "Cart button action",
+        "options": [
+          {
+            "value": "no-overlay",
+            "label": "Jump to cart page"
+          },
+          {
+            "value": "overlay",
+            "label": "Display actions overlay"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Gallery"
+      },
+      {
+        "type": "select",
+        "id": "gallery_resizing",
+        "label": "Images resizing method",
+        "options": [
+          {
+            "value": "fill",
+            "label": "Fill"
+          },
+          {
+            "value": "fit-both",
+            "label": "Fit both"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "gallery_max_size",
+        "label": "Scale images more than 100%"
+      },
+      {
+        "type": "checkbox",
+        "id": "gallery_featured_image",
+        "label": "Don't include featured image"
+      },
+      {
+        "type": "select",
+        "id": "gallery_transition",
+        "label": "Transition",
+        "options": [
+          {
+            "value": "slide",
+            "label": "Slide"
+          },
+          {
+            "value": "fade",
+            "label": "Fade"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "gallery_autoplay",
+        "label": "Autoplay",
+        "options": [
+          {
+            "value": "true",
+            "label": "Enabled"
+          },
+          {
+            "value": "false",
+            "label": "Disabled"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "gallery_timer",
+        "label": "Autoplay speed",
+        "options": [
+          {
+            "value": "4",
+            "label": "4 sec"
+          },
+          {
+            "value": "5",
+            "label": "5 sec"
+          },
+          {
+            "value": "6",
+            "label": "6 sec"
+          },
+          {
+            "value": "7",
+            "label": "7 sec"
+          },
+          {
+            "value": "8",
+            "label": "8 sec"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Show cart notes"
+      }
+    ]
+  },
+  {
+    "name": "Blog",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Grid"
+      },
+      {
+        "type": "select",
+        "id": "blog_cols",
+        "label": "Columns",
+        "options": [
+          {
+            "value": "one",
+            "label": "One"
+          },
+          {
+            "value": "two",
+            "label": "Two"
+          },
+          {
+            "value": "three",
+            "label": "Three"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "tags_filter",
+        "label": "Show tags filter"
+      },
+      {
+        "type": "checkbox",
+        "id": "tags_enabled",
+        "label": "Show post tags"
+      },
+      {
+        "type": "checkbox",
+        "id": "author_enabled",
+        "label": "Show post author"
+      },
+      {
+        "type": "checkbox",
+        "id": "rss_icon",
+        "label": "Show RSS icon"
+      },
+      {
+        "type": "select",
+        "id": "blog_excerpt",
+        "label": "Post excerpt",
+        "options": [
+          {
+            "value": "30",
+            "label": "Small"
+          },
+          {
+            "value": "90",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "blog_pages",
+        "label": "Posts per page",
+        "default": "5"
+      },
+      {
+        "type": "header",
+        "content": "Article"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_sharing_enabled",
+        "label": "Show sharing options"
+      }
+    ]
+  },
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "newsletter_check",
+        "label": "Enable newsletter"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_image_use",
+        "label": "Enable header image"
+      },
+      {
+        "type": "image",
+        "id": "newsletter.jpg",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "MailChimp form action",
+        "info": "[Click here](http:\/\/docs.shopify.com\/manual\/configuration\/store-customization\/communicating-with-customers\/accounts-and-newsletters\/where-do-i-get-my-mailchimp-form-action) to learn how to get your form action."
+      },
+      {
+        "type": "header",
+        "content": "Behavior"
+      },
+      {
+        "type": "select",
+        "id": "newsletter_auto",
+        "label": "Autoshow popup newsletter",
+        "options": [
+          {
+            "value": "0",
+            "label": "Disabled"
+          },
+          {
+            "value": "10",
+            "label": "After 5 seconds"
+          },
+          {
+            "value": "20",
+            "label": "After 20 seconds"
+          },
+          {
+            "value": "30",
+            "label": "After 30 seconds"
+          },
+          {
+            "value": "40",
+            "label": "After 40 seconds"
+          },
+          {
+            "value": "50",
+            "label": "After 50 seconds"
+          },
+          {
+            "value": "60",
+            "label": "After one minute"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_mobile",
+        "label": "Don't display on mobile devices"
+      },
+      {
+        "type": "checkbox",
+        "id": "newsletter_sidebar",
+        "label": "Show link in sidebar"
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "search_products",
+        "label": "Search only for products"
+      }
+    ]
+  },
+  {
+    "name": "Gift card",
+    "settings": [
+      {
+        "type": "image",
+        "id": "img_gift-card.jpg",
+        "label": "Gift card background"
+      }
+    ]
+  },
+  {
+    "name": "Password page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "password_sharing_enabled",
+        "label": "Show sharing button"
+      }
+    ]
+  }
+]

@@ -1,0 +1,119 @@
+<!-- Bold: Options 4-1 --> 
+<script>function update_qty_builder(builder_id, qty){ jQuery('.'+builder_id+"_qty").val(qty.value); } function remove_product_builder(builder_id){ jQuery('.'+builder_id+"_qty").val(0); jQuery('.'+builder_id+"_qty").parents("form").submit(); }</script>
+{% include 'bold-cart-handler' %}
+<!-- // end Options 4-1 -->
+<div id="page-content" class="clearfix">
+
+	<header class="page-title">
+		<h1 class="title">{{ 'cart.general.title' | t }}</h1>
+		<span class="subtitle">{{ 'cart.general.order_count' | t: count: cart.item_count }}</span>
+	</header>
+
+	{% if cart.item_count > 0 %}
+
+		<form id="cart-form" class="clearfix" action="/cart" method="post" novalidate>
+
+			{% for item in cart.items %}
+
+				<!-- Bold: Options 4-2 -->
+				{% include 'boldoptions' with 'step2' %}
+				<!-- // end Options 4-2 -->
+
+
+				<div class="cart-row clearfix {% include 'boldoptions' with 'step3' %}" data-id="{{ item.id }}" style="{% include 'boldoptions' with 'step4' %}">
+
+
+				<!-- Bold: Options 4-5 -->
+				{% if builder[0] %}
+				<img src="{{ builder[1] }}" alt="{{ builder[0] }}" /> 
+				{% else %}
+
+					<a class="cart-img" href="{{ item.url | within: collections.all }}" style="background-image:url({{ item | img_url: 'medium' }})">{{ item.title | escape }}</a>
+					<!-- Bold: Options 4-6 -->
+					{% include 'boldoptions' with 'step6' %}
+					<!-- // end Options 4-6 -->
+				{% endif %}
+				 <!-- // end Options 4-5 -->
+
+
+					<div class="content">
+
+						<div>
+
+							<div>
+
+								<h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
+
+								{% unless item.variant.title contains 'Default' %}
+									<small>{{ item.variant.title }}</small>
+								{% endunless %}
+
+								<span class="price">{% include 'boldoptions' with 'step12' %}</span>
+
+								{% assign property_size = item.properties | size %}
+				              {% if property_size > 0 %}
+				                {% for p in item.properties %}
+				                  {% unless p.last == blank %}
+				                    {{ p.first }}:
+
+				                    {% comment %}
+				                      Check if there was an uploaded file associated
+				                    {% endcomment %}
+				                    {% if p.last contains '/uploads/' %}
+				                      <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+				                    {% else %}
+				                      {{ p.last }}
+				                    {% endif %}
+
+				                    <br>
+				                  {% endunless %}
+				                {% endfor %}
+				              {% endif %}
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<input class="count {% include 'boldoptions' with 'step7' %}" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" data-id="{{ item.id }}">
+
+					<a class="remove {% include 'boldoptions' with 'step10' %}" href="{% include 'boldoptions' with 'step9' %}" data-id="{{ item.id }}">{% include 'asset_svg' with 'close_icon' %} {% include 'boldoptions' with 'step11' %}</a>
+
+				</div>
+
+			{% endfor %}
+
+			{% if settings.cart_notes_enable %}
+				<textarea name="note" id="cartSpecialInstructions" placeholder="{{ 'cart.general.note' | t }}">{{ cart.note }}</textarea>
+			{% endif %}
+
+			<div class="cart-price">
+				<p>{{ 'cart.general.total' | t }} <span>{{ cart.total_price | money }}</span></p>
+				<small>{{ 'cart.general.shipping_at_checkout' | t }}</small>
+			</div>
+
+			<div class="to-right">
+
+				<input type="submit" name="checkout" class="dark" value="{{ 'cart.general.checkout' | t }}">
+				<button name="update" class="dark">{% include 'asset_svg' with 'reload_icon' %}</button>
+
+				{% if additional_checkout_buttons %}
+					<div class="add-buttons">{{ content_for_additional_checkout_buttons }}</div>
+				{% endif %}
+
+			</div>
+
+		</form>
+
+	{% else %}
+
+		<p class="empty-cart">{{ 'cart.general.empty_cart' | t }}</p>
+		<a class="button color" href="{{ 'cart.general.continue_browsing_link' | t }}">{{ 'cart.general.continue_browsing' | t }}</a>
+
+	{% endif %}
+
+</div>
+<!-- Bold: Options 4-14 -->
+{% include 'bold-cart-modal' %}
+<!-- // end Options 4-14 -->

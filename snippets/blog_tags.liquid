@@ -1,0 +1,11 @@
+<div class="meta subtitle">
+	<label for="tagged-with">{{ 'blog.categories_dropdown.categories_label' | t }}</label>
+	<a href="{{ blog.url }}"{% if current_tags == blank %} class="selected"{% endif %}>{{ 'blog.categories_dropdown.categories_all' | t }}</a>
+	{% for tag in blog.all_tags %}
+		{% if current_tags contains tag %}
+			<a href="{{ blog.url }}/tagged/{{ tag.handle }}" class="selected">{{ tag | capitalize }}</a>
+		{% else %}
+			<a href="{{ blog.url }}/tagged/{{ tag.handle }}">{{ tag | capitalize }}</a>
+  		{% endif %}
+	{% endfor %}
+</div>

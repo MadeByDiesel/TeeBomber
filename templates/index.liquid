@@ -1,0 +1,330 @@
+{% if settings.carousel_enable %}
+
+	<div id="home-slider" class="swiper-container">
+
+		<div class="swiper-wrapper">
+
+			{% if settings.slide1_show %}
+
+				<div class="slide swiper-slide">
+
+					<div class="slide-img" style="background-image:url({{ 'slide1_img.jpg' | asset_url }})">
+
+						<img src="{{ 'slide1_img.jpg' | asset_url }}" alt="{{ settings.slide1_label1 }}" />
+
+						<div class="slide-caption {{ settings.slide1_labels_pos }} {{ settings.slide1_img_style }}">
+							<div class="table-display">
+								<div>
+
+									{% if settings.slide1_label1 != '' %}
+										<span class="label a">{{ settings.slide1_label1 }}</span>
+									{% endif %}
+
+									{% if settings.slide1_label2 != '' %}
+										<h2 class="label b">{{ settings.slide1_label2 }}</h2>
+									{% endif %}
+
+									{% if settings.slide1_label3 != '' %}
+										<span class="label c">{{ settings.slide1_label3 }}</span>
+									{% endif %}
+
+									{% if settings.slide1_button_label != '' %}
+										<a class="button{% if settings.slide1_img_style == 'light' %} dark{% endif %} label d" href="{{ settings.slide1_button_url}}">{{ settings.slide1_button_label }}<span>&rarr;</span></a>
+									{% endif %}
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					{% if settings.slide1_img_url != '' %}
+						<a class="slide-url" href="{{ settings.slide1_img_url }}"></a>
+					{% endif %}
+
+				</div>
+
+			{% endif %}
+
+			{% if settings.slide2_show %}
+
+				<div class="slide swiper-slide">
+
+					<div class="slide-img" style="background-image:url({{ 'slide2_img.jpg' | asset_url }})">
+
+						<img src="{{ 'slide2_img.jpg' | asset_url }}" alt="{{ settings.slide2_label1 }}" />
+
+						<div class="slide-caption {{ settings.slide2_labels_pos }} {{ settings.slide2_img_style }}">
+							<div class="table-display">
+								<div>
+
+									{% if settings.slide2_label1 != '' %}
+										<span class="label a">{{ settings.slide2_label1 }}</span>
+									{% endif %}
+
+									{% if settings.slide2_label2 != '' %}
+										<h2 class="label b">{{ settings.slide2_label2 }}</h2>
+									{% endif %}
+
+									{% if settings.slide2_label3 != '' %}
+										<span class="label c">{{ settings.slide2_label3 }}</span>
+									{% endif %}
+
+									{% if settings.slide2_button_label != '' %}
+										<a class="button{% if settings.slide2_img_style == 'light' %} dark{% endif %} label d" href="{{ settings.slide2_button_url}}">{{ settings.slide2_button_label }}<span>&rarr;</span></a>
+									{% endif %}
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					{% if settings.slide2_img_url != '' %}
+						<a class="slide-url" href="{{ settings.slide2_img_url }}"></a>
+					{% endif %}
+
+				</div>
+
+			{% endif %}
+
+			{% if settings.slide3_show %}
+
+				<div class="slide swiper-slide">
+
+					<div class="slide-img" style="background-image:url({{ 'slide3_img.jpg' | asset_url }})">
+
+						<img src="{{ 'slide3_img.jpg' | asset_url }}" alt="{{ settings.slide3_label1 }}" />
+
+						<div class="slide-caption {{ settings.slide3_labels_pos }} {{ settings.slide3_img_style }}">
+							<div class="table-display">
+								<div>
+
+									{% if settings.slide3_label1 != '' %}
+										<span class="label a">{{ settings.slide3_label1 }}</span>
+									{% endif %}
+
+									{% if settings.slide3_label2 != '' %}
+										<h2 class="label b">{{ settings.slide3_label2 }}</h2>
+									{% endif %}
+
+									{% if settings.slide3_label3 != '' %}
+										<span class="label c">{{ settings.slide3_label3 }}</span>
+									{% endif %}
+
+									{% if settings.slide3_button_label != '' %}
+										<a class="button{% if settings.slide3_img_style == 'light' %} dark{% endif %} label d" href="{{ settings.slide3_button_url}}">{{ settings.slide3_button_label }}<span>&rarr;</span></a>
+									{% endif %}
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					{% if settings.slide3_img_url != '' %}
+						<a class="slide-url" href="{{ settings.slide3_img_url }}"></a>
+					{% endif %}
+
+				</div>
+
+			{% endif %}
+
+			{% if settings.slide4_show %}
+
+				<div class="slide swiper-slide">
+
+					<div class="slide-img" style="background-image:url({{ 'slide4_img.jpg' | asset_url }})">
+
+						<img src="{{ 'slide4_img.jpg' | asset_url }}" alt="{{ settings.slide4_label1 }}" />
+								
+						<div class="slide-caption {{ settings.slide4_labels_pos }} {{ settings.slide4_img_style }}">
+							<div class="table-display">
+								<div>
+
+									{% if settings.slide4_label1 != '' %}
+										<span class="label a">{{ settings.slide4_label1 }}</span>
+									{% endif %}
+
+									{% if settings.slide4_label2 != '' %}
+										<h2 class="label b">{{ settings.slide4_label2 }}</h2>
+									{% endif %}
+
+									{% if settings.slide4_label3 != '' %}
+										<span class="label c">{{ settings.slide4_label3 }}</span>
+									{% endif %}
+
+									{% if settings.slide4_button_label != '' %}
+										<a class="button{% if settings.slide4_img_style == 'light' %} dark{% endif %} label d" href="{{ settings.slide4_button_url}}">{{ settings.slide4_button_label }}<span>&rarr;</span></a>
+									{% endif %}
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					{% if settings.slide4_img_url != '' %}
+						<a class="slide-url" href="{{ settings.slide4_img_url }}"></a>
+					{% endif %}
+
+				</div>
+
+			{% endif %}
+
+		</div>
+
+		<div class="draw-buttons gal three" aria-hidden="true">
+			<div class="holder">
+				<span class="swiper-no"><span class="cur">1</span><span class="tot">1</span></span>
+				<span class="btn-prev">{% include 'asset_svg' with 'left_icon' %}<a href="#" class="swiper-prev"></a>
+				</span><span class="btn-next">{% include 'asset_svg' with 'right_icon' %}<a href="#" class="swiper-next"></a></span>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="swiper-pagination"></div>
+
+{% endif %}
+
+{% if settings.home_page_enable or settings.home_blog_enable or settings.home_list_products_enable or settings.home_list_enable != "no" %}
+
+	<div id="page-content" class="{% if settings.carousel_enable %} hide-content {% endif %}{% unless settings.home_list_enable contains 'collections' or settings.home_list_products_enable %} no-extra-space {% endunless %}clearfix">
+
+		{% unless settings.home_list_enable == 'no' %}
+
+			<div id="products-grid" class="isotope-products home-content collections-list border-{{ settings.collections_border }}{% if settings.carousel_enable %} no-loader{% endif %}{% if settings.home_list_products_enable %} kill-space {% endif %}">
+
+				{% if settings.home_list_enable == 'collections' %}
+
+					{% for collection in collections limit:6 %}
+
+						{% if collection.handle == 'frontpage' %}
+							{% continue %}
+					    {% endif %}
+					    
+						{% include 'collections_item' %}
+
+					{% endfor %}
+
+				{% elsif settings.home_list_enable == 'collections-manual' %}	
+
+					{% if settings.home_collections_select_1 != '' %}
+						{% include 'collections_item-variable' with collections[settings.home_collections_select_1] %}
+					{% endif %}
+				
+					{% if settings.home_collections_select_2 != '' %}
+						{% include 'collections_item-variable' with collections[settings.home_collections_select_2] %}
+					{% endif %}
+				
+					{% if settings.home_collections_select_3 != '' %}
+						{% include 'collections_item-variable' with collections[settings.home_collections_select_3] %}
+					{% endif %}
+				
+					{% if settings.home_collections_select_4 != '' %}
+						{% include 'collections_item-variable' with collections[settings.home_collections_select_4] %}
+					{% endif %}
+				
+					{% if settings.home_collections_select_5 != '' %}
+						{% include 'collections_item-variable' with collections[settings.home_collections_select_5] %}
+					{% endif %}
+				
+					{% if settings.home_collections_select_6 != '' %}
+						{% include 'collections_item-variable' with collections[settings.home_collections_select_6] %}
+					{% endif %}
+
+				{% endif %}
+
+			</div>
+
+		{% endunless %}
+
+		{% if settings.home_list_products_enable %}
+
+			<div id="products-grid" class="isotope-products home-content products-list border-{{ settings.collections_border }}{% if settings.carousel_enable %} no-loader{% endif %}">
+
+				{% assign collection_count = collections[settings.home_collections_select].products_count | times: 1 %}
+
+				{% if collection_count == 0 %}
+
+					{% for i in (1..4) %}
+						{% capture product_img %} {% cycle '1', '2' %} {% endcapture %}
+						{% include 'collection_item-blank' with product_img %}
+					{% endfor %}
+
+					<div class="onboarding">
+
+						<p>{{ 'general.onboarding.no_products' | t }}</p>
+
+						<p>{{ 'general.onboarding.edit_homepage' | t }}</p>
+
+						<a class="button" href="/admin/themes">{{ 'general.onboarding.customize_theme' | t }}</a>
+						<a class="button" href="/admin/products/new">{{ 'general.onboarding.add_products' | t }}</a>
+
+					</div>
+
+				{% else %}
+
+					{% assign per = settings.home_list_products_max | times: 1 %}
+
+					{% if collection_count > 0 %}
+
+						{% for product in collections[settings.home_collections_select].products limit:per %}
+						    {% include 'collection_item' %}
+						{% endfor %}
+
+					{% endif %}
+
+				{% endif %}
+
+			</div>
+
+		{% endif %}
+
+		{% if settings.home_page_enable %}
+
+			<div class="home-content wpadding">
+
+				<header class="page-title">
+					<h3 class="title">{{ pages[settings.home_page_select].title }}</h3>
+				</header>
+
+				<div class="rte">
+					{{ pages[settings.home_page_select].content }}
+				</div>
+
+			</div>
+
+		{% endif %}
+
+		{% if settings.home_blog_enable %}
+
+			<div class="home-content wpadding">
+			
+				{% assign per = settings.home_blog_max | times: 1 %}
+
+				<header class="page-title">
+					<h3 class="title">{{ blogs[settings.home_blog_select].title }}</h3>
+				</header>
+
+				<div class="blog-grid cols-{{ settings.blog_cols }} clearfix">
+
+					{% for article in blogs[settings.home_blog_select].articles limit:per %}
+						{% include 'blog_item' %}
+					{% endfor %}
+
+				</div>
+
+			</div>
+
+		{% endif %}
+
+	</div>
+
+{% endif %}
+
+{% if settings.home_list_enable == 'no' and settings.carousel_enable == blank and settings.home_page_enable == blank and settings.home_blog_enable == blank %}
+	<p class="no-content-message">{{ 'general.onboarding.blank_homepage' | t }}</p>
+	<a class="button" href="/admin/themes">{{ 'general.onboarding.customize_theme' | t }}</a>
+{% endif %}

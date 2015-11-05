@@ -1,0 +1,25 @@
+<div class="top">
+	{% if product.collections.size > 0 %}
+    	<span class="collection">
+    		{% for collection in product.collections %}
+    			{% unless collection.title contains collections[settings.home_collections_select].title or collection.title contains collections[settings.collection_default].title %}
+    				<span>{{ collection.title }}</span>
+				{% endunless %}
+	    	{% endfor %}
+	    </span>
+	{% endif %}
+	<h2>{{ product.title }}</h2>
+</div>
+
+<div class="bottom">
+
+	{% if product.price_varies %} 
+		{{ 'products.grid.from_text' | t }} 
+	{% endif %}
+	<strong>{{ product.price | money }}</strong>
+
+	{% if on_sale %}
+		<span class="info">{{ product.compare_at_price | money }}</span>
+	{% endif %}
+	
+</div>

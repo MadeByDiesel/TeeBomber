@@ -1,0 +1,13 @@
+<div id="products-grid" class="isotope-products collections-list border-{{settings.collections_border }}">
+	
+	{% for collection in collections %}
+
+		{% if collection.handle == 'frontpage' %}
+			{% continue %}
+	    {% endif %}
+
+		{% include 'collections_item' %}
+
+	{% endfor %}
+	
+</div>

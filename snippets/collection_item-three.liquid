@@ -1,0 +1,23 @@
+<div>
+
+	<div>
+
+		<h2>{{ product.title }}</h2>
+
+		<div class="price">
+
+			{% if product.price_varies %} 
+				{{ 'products.grid.from_text' | t }} 
+			{% endif %}
+
+			<strong>{{ product.price | money }}</strong>
+
+			{% if on_sale %}
+				<span class="info">{{ product.compare_at_price | money }}</span>
+			{% endif %}
+
+		</div>
+
+	</div>
+
+</div>

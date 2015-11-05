@@ -1,0 +1,26 @@
+{% assign per = settings.blog_pages | times: 1 %}
+{% paginate blog.articles by per %}
+
+	<div id="page-content" class="clearfix">
+
+		<header class="page-title">
+			<h1 class="title">{{ blog.title }}</h1>
+			{% if settings.tags_filter %} {% include 'blog_tags' %} {% endif %}
+			{% if settings.rss_icon %} <a href="{{ blog.url }}.atom" target="_blank" class="fa fa-rss"></a> {% endif %}
+		</header>
+
+		<div class="blog-grid cols-{{ settings.blog_cols }} clearfix">
+
+			{% for article in blog.articles %}
+				{% include 'blog_item' %}
+			{% endfor %}
+
+		</div>
+
+		{% if paginate.pages > 1 %}
+			{% include 'main_pagination' %}
+		{% endif %}
+
+	</div>
+
+{% endpaginate %}

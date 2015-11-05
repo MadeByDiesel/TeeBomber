@@ -1,0 +1,313 @@
+<!-- Bold D&H //product -->
+{% if product.metafields.inventory.ShappifyHidden == "true" %}
+Product is not available
+{% break %}{% endif %}
+<!-- // end product D&H -->
+
+<article id="product-page" class="loading{% if collection == blank %} move-top{% endif %}" itemscope itemtype="//schema.org/Product" data-collection="{{ collection.handle }}">
+
+	<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+	<meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+	<div id="product-content" class="clearfix">
+
+		<header id="product-header">
+
+			{% if settings.breadcrumb_enabled %}
+				{% include 'product_breadcrumb' %}
+			{% endif %}
+
+			<h1 itemprop="name">{{ product.title }}</h1>
+
+			{% if settings.product_vendor_enabled %}
+				<p id="product-vendor" itemprop="brand">{{ 'general.prefixes.by' | t }} {{ product.vendor | link_to_vendor }}</p>
+			{% endif %}
+
+			<span id="price">
+				<span id="productPrice">{{ product.price | money }}</span>
+				{% if product.compare_at_price > product.price %}
+					<span id="comparePrice" class="info">{{ product.compare_at_price | money }}</span>
+				{% endif %}
+			</span>
+
+		</header>
+
+		<section id="product-description">
+
+			<div itemprop="description">
+				<div>
+					{{ product.description }}
+				</div>
+			</div>
+
+			<div itemprop="offers" itemscope itemtype="//schema.org/Offer">
+
+		        {% assign variant = product.selected_or_first_available_variant %}
+		        
+				<meta itemprop="price" content="{{ shop.currency }}">
+				<meta itemprop="priceCurrency" content="{{ product.price }}">
+
+		        <link itemprop="availability" href="//schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+		    <form action="/cart/add" method="post" enctype="multipart/form-data" id="add-to-cart" class="shappify_add_to_cart_form" data-product-id="{{ product.id }}" enctype="multipart/form-data" >
+
+					<select name="id" id="productSelect" class="product-variants">
+
+						{% for variant in product.variants %}
+							{% if variant.available %}
+								<option {% if variant == product.selected_or_first_available_variant %} selected="selected" data-sku="{{ variant.sku }}" {% endif %} value="{{ variant.id }}">
+									{{ variant.title }} - {{ variant.price | money_with_currency }}
+								</option>
+							{% else %}
+								<option disabled="disabled">
+									{{ variant.title }} - {{ 'products.page.sold_out_variant' | t }}
+								</option>
+							{% endif %}
+						{% endfor %}
+
+					</select>
+					
+					<!-- Bold: Options 3-2 -->
+					{% include 'shappify-options' %}
+					<!-- // end Options 3-2 -->
+
+					{% if settings.quantity_selector %}
+						<input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
+					{% endif %}
+
+					<button type="submit" name="add" id="addToCart" class="button color"><span id="addToCartText">{{ 'products.page.add_to_cart_button' | t }}</span></button>
+
+					{% if settings.cart_action == 'overlay' %}
+						<a id="ajaxCartButton" class="overlay-button hidden" data-overlay="#cart-overlay" aria-hidden="true"></a>
+					{% endif %}
+
+        			<span id="variantQuantity" class="variant-quantity"></span>
+
+				</form>
+
+			</div>
+
+        	<a href="#" id="share-link" class="overlay-button" data-overlay="#share-overlay">{% include 'asset_svg' with 'share_icon' %}{{ 'products.page.share_link' | t }}</a>
+
+   		</section>
+
+   	</div>
+
+	<section id="product-gallery" class="scale-up-{{ settings.gallery_max_size }}">
+
+		{% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+
+		<div class="swiper-container">
+
+			<div class="swiper-wrapper">
+
+				{% if product.images.size == 0 %} 
+   
+    				<div class="swiper-slide">
+    					<img src="{{ 'product-default.png' | asset_url }}" alt="" class="swiper-img" />
+    				</div>
+
+				{% endif %}
+
+				{% for image in product.images %}
+
+					{% if forloop.length == 1 %}
+
+						<div class="swiper-slide">
+							<img src="{{ featured_image.src | img_url: '2048x2048' }}" alt="{{ featured_image.alt | escape }}" class="swiper-img">
+						</div>
+
+					{% else %}
+
+						{% if settings.gallery_featured_image and product.featured_image == image %}
+
+							<!-- skip featured image -->
+
+						{% else %}
+
+							<div class="swiper-slide" data-index="{{ forloop.index }}"{% if image.attached_to_variant? %} data-variant-img="{{ image.variants[0].featured_image.id }}"{% endif %}>
+								<img src="{{ image.src | img_url: '2048x2048' }}" alt="{{ image.alt | escape }}" class="swiper-img">
+							</div>
+
+						{% endif %}
+
+					{% endif %}
+
+				{% endfor %}
+
+			</div>
+
+			<div class="swiper-pagination"></div>
+
+		</div>
+
+	</section>
+
+	{% capture left_icon %}{% include 'asset_svg' with 'left_icon' %}{% endcapture %}
+	{% capture right_icon %}{% include 'asset_svg' with 'right_icon' %}{% endcapture %}
+
+	{% if collection %}
+
+		{% if collection.previous_product or collection.next_product %}
+
+			<nav class="draw-buttons nav{% if collection.previous_product and collection.next_product %} three{% endif %}{% unless collection.next_product %} last-nav-mobile{% endunless %}">
+
+				<div class="holder">
+
+					{% if collection.previous_product %}
+						{% capture prev_url %}{{ collection.previous_product}}{% endcapture %}
+						<span class="btn-prev">
+							{{ left_icon }}
+							{{ '&larr;' | link_to: prev_url }}
+						</span>
+					{% endif %}
+
+					<span class="btn-close">
+						<span class="back">
+							{% include 'asset_svg' with 'close_icon' %}
+							<a href="{{ collection.url }}"></a>
+						</span>
+						<span class="front">
+							{% include 'asset_svg' with 'grid_icon' %}
+						</span>
+					</span>
+
+					{% if collection.next_product %}
+						{% capture next_url %}{{ collection.next_product}}{% endcapture %}
+						<span class="btn-next">
+							{{ right_icon }}
+							{{ '&rarr;' | link_to: next_url }}
+						</span>
+					{% endif %}
+
+				</div>
+
+			</nav>
+
+		{% endif %}
+
+	{% endif %}
+
+</article>
+
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+<script>
+
+	var selectCallback = function(variant, selector) {
+
+	    var $addToCart = $('#addToCart'),
+	        $productPrice = $('#productPrice'),
+	        $comparePrice = $('#comparePrice'),
+	        $quantityElements = $('.quantity-selector, label + .js-qty'),
+	        $addToCartText = $('#addToCartText'),
+	        $featuredImage = $('#productPhotoImg');
+
+		if (variant) {
+
+			// Fix position for swiper
+
+			{% if settings.gallery_featured_image %}
+				var posFix = 1;
+			{% else %}
+				var posFix = 0;
+			{% endif %}
+
+			// Swipe to variant slide s
+
+
+			var $swiperBullets = $('.swiper-pagination').children('span');
+
+			if ( variant.featured_image ) {
+
+				var newImg = $('.swiper-wrapper').find('.swiper-slide[data-variant-img="' + variant.featured_image.id + '"]');
+
+				if ( newImg.length > 0 ) {
+					if ( $.swiper != undefined ) {
+						$.swiper.slideTo(newImg.data('index')-posFix);
+					} else {
+						$.swiperVariantAlready = newImg.data('index')-posFix;
+					}
+				}
+
+			}
+
+			// Edit cart buttons based on stock 
+			
+			if (variant.available) {
+				$addToCart.removeClass('disabled').prop('disabled', false);
+				$addToCartText.text("{{ 'products.page.add_to_cart_button' | t }}");
+				$quantityElements.show();
+			} else {
+				$addToCart.addClass('disabled').prop('disabled', true);
+				$addToCartText.text("{{ 'products.page.sold_out_variant' | t }}");
+				$quantityElements.hide();
+			}
+
+			// Update price
+
+			$productPrice.html( Shopify.formatMoney(variant.price, "{{ shop.money_format }}") );
+			if ( variant.compare_at_price > variant.price ) {
+				$comparePrice.html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")).show();
+			} else {
+				$comparePrice.hide();
+			}
+
+		} else {
+
+			// Disable variant completely 
+
+			$addToCart.addClass('disabled').prop('disabled', true);
+			$addToCartText.text("{{ 'products.page.unavailable_variant' | t }}");
+			$quantityElements.hide();
+
+		}
+
+	};
+
+	jQuery(function($) {
+
+		new Shopify.OptionSelectors('productSelect', {
+			product: {{ product | json }},
+			onVariantSelected: selectCallback,
+			enableHistoryState: true
+		});
+
+		// Restyle selectors based on various options
+
+		$('#productSelect').addClass('styled');
+
+		$('select:not(.styled)').each(function(){
+
+			$(this).styledSelect({
+			    coverClass: 'regular-select-cover',
+			    innerClass: 'regular-select-inner'
+			}).addClass('styled');
+
+	   	 $(this).parent().append($.themeAssets.arrowDown);
+
+		});
+	    	
+		var selectLabels = '',
+			i = 0;
+
+		{% if product.options.size == 1 and product.options.first != 'Title' %}
+			$('.selector-wrapper').append('<label class="hidden">{{ product.options.first | escape }}</label>');
+		{% endif %}
+
+		$('.selector-wrapper').each(function(){
+			$(this).attr('id', 'selector-' + i++);
+			selectLabels += '#' + $(this).attr('id') + ' .regular-select-inner:before{content:"' + $(this).find('label').text() + ': ";}';
+			$(this).find('label').hide();
+		});	
+
+		if ( selectLabels != '' ) {
+			$('head').append('<style type="text/css">' + selectLabels + '</style>');
+		}
+
+	    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+			$('.selector-wrapper').hide();
+	    {% endif %}
+
+	});
+
+</script>

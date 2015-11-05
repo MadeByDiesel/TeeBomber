@@ -1,0 +1,17 @@
+{% if form.errors %}
+
+	<div class="note form-error">
+
+		<ul>
+			{% for field in form.errors %}
+				{% if field == 'form' %}
+					<li>{{ form.errors.messages[field] }}</li>
+				{% else %}
+					<li>The <strong>{{ field | replace: 'body', 'message' }}</strong> field {{ form.errors.messages[field] }}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+
+	</div>
+
+{% endif %}

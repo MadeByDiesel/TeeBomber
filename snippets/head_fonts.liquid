@@ -1,0 +1,68 @@
+{% capture type_head %} {{ settings.typography_headings | lstrip | rstrip | replace: ' ', '+' | replace: "'", '' }} {% endcapture %}
+{% capture type_menu %} {{ settings.typography_menus | lstrip | rstrip | replace: ' ', '+' | replace: "'", '' }} {% endcapture %}
+{% capture type_body %} {{ settings.typography_body | lstrip | rstrip | replace: ' ', '+' | replace: "'", '' }} {% endcapture %}
+{% capture type_quotes %} {{ settings.typography_quotes | lstrip | rstrip | replace: ' ', '+' | replace: "'", '' }} {% endcapture %}
+{% capture type_label1 %} {{ settings.typography_label1 | lstrip | rstrip | replace: ' ', '+' | replace: "'", '' }} {% endcapture %}
+{% capture type_label2 %} {{ settings.typography_label2 | lstrip | rstrip | replace: ' ', '+' | replace: "'", '' }} {% endcapture %}
+{% capture type_label3 %} {{ settings.typography_label3 | lstrip | rstrip | replace: ' ', '+' | replace: "'", '' }} {% endcapture %}
+
+{% assign font_subset = '' %}
+{% if settings.typography_set_cyrillic %}
+	{% capture font_subset %} {{ font_subset | append: ',cyrillic' }} {% endcapture %}
+{% endif %}
+{% if settings.typography_set_cyrillic-extended %}
+	{% capture font_subset %} {{ font_subset | append: ',cyrillic-ext' }} {% endcapture %}
+{% endif %}
+{% if settings.typography_set_devengari %}
+	{% capture font_subset %} {{ font_subset | append: ',devengari' }} {% endcapture %}
+{% endif %}
+{% if settings.typography_set_greek %}
+	{% capture font_subset %} {{ font_subset | append: ',greek' }} {% endcapture %}
+{% endif %}
+{% if settings.typography_set_greek-extended %}
+	{% capture font_subset %} {{ font_subset | append: ',greek-ext' }} {% endcapture %}
+{% endif %}
+{% if settings.typography_set_khmer %}
+	{% capture font_subset %} {{ font_subset | append: ',khmer' }} {% endcapture %}
+{% endif %}
+{% if settings.typography_set_latin %}
+	{% capture font_subset %} {{ font_subset | append: ',latin' }} {% endcapture %}
+{% endif %}
+{% if settings.typography_set_latin-extended %}
+	{% capture font_subset %} {{ font_subset | append: ',latin-ext' }} {% endcapture %}
+{% endif %}
+{% if settings.typography_set_vietnamese %}
+	{% capture font_subset %} {{ font_subset | append: ',vietnamese' }} {% endcapture %}
+{% endif %}
+
+{% if font_subset != '' %}
+	{% capture font_subset %}{{ font_subset | prepend: '&subset=' | replace: ' ', '' | replace_first: ',', '' | lstrip | rstrip }}{% endcapture %}
+{% endif %}
+
+{% unless type_head contains 'default' %}
+	<link href="//fonts.googleapis.com/css?family={{ type_head | replace: ' ', '' }}:400,400italic,500,600,700,700italic{{ font_subset }}" rel="stylesheet" type="text/css">
+{% endunless %}
+
+{% unless type_menu contains 'regular' or type_menu == type_head %}
+	<link href="//fonts.googleapis.com/css?family={{ type_menu | replace: ' ', '' }}:400,700{{ font_subset }}" rel="stylesheet" type="text/css">
+{% endunless %}
+
+{% unless type_body contains 'regular' or type_body == type_head or type_body == type_menu %}
+	<link href="//fonts.googleapis.com/css?family={{ type_body | replace: ' ', '' }}:400,400italic,500,600,700,700italic{{ font_subset }}" rel="stylesheet" type="text/css">
+{% endunless %}
+
+{% if template contains 'index' %}
+
+	{% unless type_label1 contains 'regular' or type_label1 == type_head or type_label1 == type_menu or type_label1 == type_body %}
+		<link href="//fonts.googleapis.com/css?family={{ type_label1 | replace: ' ', '' }}:400,400italic,700{{ font_subset }}" rel="stylesheet" type="text/css">
+	{% endunless %}
+
+	{% unless type_label2 contains 'regular' or type_label2 == type_head or type_label2 == type_menu or type_label2 == type_body or type_label1 == type_label2 %}
+		<link href="//fonts.googleapis.com/css?family={{ type_label2 | replace: ' ', '' }}:400,400italic,700{{ font_subset }}" rel="stylesheet" type="text/css">
+	{% endunless %}
+
+	{% unless type_label3 contains 'regular' or type_label3 == type_head or type_label3 == type_menu or type_label3 == type_body or type_label1 == type_label3 or type_label2 == type_label3  %}
+		<link href="//fonts.googleapis.com/css?family={{ type_label3 | replace: ' ', '' }}:400,400italic,700{{ font_subset }}" rel="stylesheet" type="text/css">
+	{% endunless %}
+
+{% endif %}

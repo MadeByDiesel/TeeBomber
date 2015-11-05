@@ -1,0 +1,48 @@
+{% unless current_collection %}
+	{% assign current_collection = collection %}
+{% endunless %}
+
+{% capture shop_title %}{{ 'products.grid.shop_collection_title' | t }}{% endcapture %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+	{% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available  %}
+	{% assign sold_out = false %}
+{% endif %}
+
+<a href="{{ product.url | within: collection }}" class="grid-item {{ settings.collections_anim_style }} {{ settings.collections_thumb_style }}">
+
+	{% if product.images.size == 0 %} 
+
+		<img src="{{ 'product-default.png' | asset_url }}" alt="" class="swiper-img" />
+
+	{% else %}
+
+    	<img src="{{ product.featured_image.src | img_url: '1024x1024' }}" alt="{{ product.featured_image.alt | escape }}">
+
+	{% endif %}
+
+    <div class="caption">
+
+    	{% if settings.collections_anim_style == 'one' %}
+    		{% include 'collection_item-one' %}
+		{% elsif settings.collections_anim_style == 'two' %}
+    		{% include 'collection_item-two' %}
+		{% elsif settings.collections_anim_style == 'three' %}
+    		{% include 'collection_item-three' %}
+		{% endif %}
+
+	</div>
+
+	{% if sold_out %}
+		<span class="add sold"><span>{{ 'products.grid.sold_out_product' | t }}</span></span>
+	{% endif %}
+	{% if on_sale %}
+		<span class="add sale"><span>{{ 'products.grid.on_sale_product' | t }}</span></span>
+	{% endif %}
+
+</a>

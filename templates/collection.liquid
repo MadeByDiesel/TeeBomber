@@ -1,0 +1,74 @@
+{% if settings.collection_title_enabled or settings.collection_filtering_enabled or settings.collection_sorting_enabled or settings.collection_sharing_enabled %}
+
+	<div class="infobar clearfix">
+
+		{% if settings.collection_title_enabled %}
+			<strong>
+				{{ collection.title }}
+			</strong>
+		{% endif %}
+
+		<div class="hidden">{% include 'asset_svg' with 'arrow_icon' %}</div>
+
+		<div id="options">
+
+			{% if settings.collection_filtering_enabled %}
+				{% if settings.collection_filtering_type == 'by-groups' %}
+					{% include 'collection_filter-advanced' %}
+				{% else %}
+					{% include 'collection_filter' %}
+				{% endif %}
+			{% endif %}
+
+			{% if settings.collection_sorting_enabled %}
+				{% include 'collection_sort' %}
+			{% endif %}
+
+		</div>
+
+		{% if settings.collection_sharing_enabled %}
+	    	<a href="#" id="share-link" class="overlay-button" data-overlay="#share-overlay">{% include 'asset_svg' with 'share_icon' %}{{ 'products.page.share_link' | t }}</a>
+	    {% endif %}
+
+	</div>
+
+{% endif %}
+
+{% if settings.collection_show_description != false and collection.image %}
+
+	<div class="collection-data type-{{ settings.collection_show_description }} clearfix"> 
+
+		<img src="{{ collection | img_url: '2048x2048' }}" alt="{{ collection.image.alt }}" />
+
+		<div>
+			<div class="table-display">
+				<div>
+					<h2>{{ collection.title }}</h2>
+					{{ collection.description }}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+{% endif %}
+
+{% assign per = settings.collection_pages | times: 1 %}
+{% paginate collection.products by per %}
+
+	<div id="products-grid" class="isotope-products border-{{settings.collections_border }}{% if settings.collection_show_description != false and collection.image %} no-loader{% endif %}">
+		{% for product in collection.products %}	
+			<!-- Bold D&H //collection -->
+			{% if product.metafields.inventory.ShappifyHidden == "true" %}{% continue %}{% endif %}
+			<!-- //end collection D&H -->
+			{% include 'collection_item' %}
+		{% else %}
+			<p class="no-content-message">{{ 'products.grid.no_products_text' | t }}</p>
+		{% endfor %}
+	</div>
+
+	{% if paginate.pages > 1 %}
+		<div class="infobar bottom">{% include 'main_pagination' %}</div>
+	{% endif %}
+
+{% endpaginate %}

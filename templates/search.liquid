@@ -1,0 +1,104 @@
+{% assign grid_results = false %}
+
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+
+	<div id="page-content" class="clearfix">
+
+		{% if search.performed %}
+
+			{% paginate search.results by 5 %}
+
+				<header class="page-title">
+					<h1 class="title">{{ 'search.page.title' | t }}</h1>
+					{% if search.results_count == 0 %}
+						<h2 class="subtitle">{{ 'search.page.no_results_subtitle_html' | t : terms : search.terms }}</h2>
+					{% else %}
+						<h2 class="subtitle">{{ 'search.page.some_results_subtitle_html' | t : terms : search.terms }}
+							{% if search.results_count == 1 %}
+								{{ 'search.page.one_result' | t }}
+							{% else %}
+								{{ 'search.page.more_results' | t : count : search.results_count }}
+							{% endif %}
+						</h2>
+					{% endif %}
+				</header>
+
+				{% if search.results_count == 0 %}
+
+					<p>{{ 'search.page.no_results_text' | t }}</p>
+
+					{% include 'main_search' with 'secondary' %}
+
+				{% else %}
+
+					{% for item in search.results %}
+						<!-- Bold D&H //search -->
+						{% if item.metafields.inventory.ShappifyHidden == "true" %}{% continue %}{% endif %}
+						<!-- // end search D&H -->
+
+						{% capture item_type %} {{ item }} {% endcapture %}
+
+						{% if item_type contains 'Product' %}
+
+							<li class="search-item product clearfix">
+
+								<a class="search-img" href="{{ item.url | within: collections.all }}" style="background-image:url({{ item.featured_image | img_url: 'medium' }})">{{ item.title | escape }}</a>
+
+								<div class="product-content">
+
+									<h3>{{ item.title }} - 
+										<strong>{{ item.price | money }}</strong>
+										{% if item.compare_at_price > item.price %}
+											<span id="comparePrice" class="info">{{ item.compare_at_price | money }}</span>
+										{% endif %}
+									</h3>
+
+									<div class="excerpt">{{ item.content | strip_html | truncatewords: 30 | highlight: search.terms }}</div>
+
+									<a href="{{ item.url | within: collections.all }}">{{ 'search.page.product_link_text' | t }} &rarr;</a>
+
+								</div>
+
+							</li>
+
+						{% else %}
+
+							<li class="search-item article clearfix">
+
+								<h3>{{ item.title }}</h3>
+
+								<div class="excerpt">{{ item.content | strip_html | truncatewords: 30 | highlight: search.terms }}</div>
+
+								<a href="{{ item.url }}">{{ 'search.page.article_link_text' | t }} &rarr;</a>
+
+							</li>
+
+						{% endif %}
+
+					{% endfor %}
+
+				{% endif %}
+
+				{% if paginate.pages > 1 %}
+					{% include 'main_pagination' %}
+				{% endif %}
+
+			{% endpaginate %}
+
+		{% else %}
+
+			<header class="page-title">
+				<h1 class="title">{{ 'search.page.title' | t }}</h1>
+			</header>
+
+			{% include 'main_search' with 'secondary' %}
+
+		{% endif %}
+
+	</div>
+
+{% else %}
+	{% include 'respond' %}
+	{% layout none %}
+{% endunless %}

@@ -1,0 +1,40 @@
+{% assign current_menu = {{sidebar_nav-collections}} %}
+{% capture menu_size %} {{ linklists[current_menu].links | size }} {% endcapture %}
+<ul class="top-menu collections-menu size-{{ menu_size | lstrip | rstrip }}">
+
+	{% for link in linklists[current_menu].links %}
+
+		{% assign child_list_handle = link.title | handleize %}
+
+		{% if linklists[child_list_handle].links != blank %}
+
+			{% assign submenu_active = false %}
+			{% for childlink in linklists[child_list_handle].links %}
+				{% if childlink.active %}
+					{% assign submenu_active = true %}
+				{% endif %}
+			{% endfor %}
+
+			<li class="submenu{% if link.active or submenu_active %} selected{% endif %}" aria-haspopup="true">
+				<a href="{{ link.url }}">
+					{{ link.title }}
+					{% include 'asset_svg' with 'arrow_icon' %}
+				</a>
+				<ul class="sub-menu">
+				{% for childlink in linklists[child_list_handle].links %}
+					<li{% if childlink.active %} class="selected"{% endif %}><a href="{{ childlink.url }}">{{ childlink.title | escape }}</a></li>
+				{% endfor %}
+				</ul>
+			</li>
+
+		{% else %}
+
+			<li{% if link.active %} class="selected"{% endif %}>
+				<a href="{{ link.url }}">{{ link.title }}</a>
+			</li>
+			
+		{% endif %}
+
+	{% endfor %}
+
+</ul>

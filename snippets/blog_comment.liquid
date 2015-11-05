@@ -1,0 +1,18 @@
+<div class="avatar">
+	<img src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}?s=60&amp;d={{ 'img_avatar.jpg' | asset_url | url_escape }}" alt="{{ comment.author }}" />
+</div>
+
+<div class="content">
+	
+	<div class="meta">
+		<h5>{{ comment.author }}</h5>
+		<time class="timeago" datetime="{{ comment.created_at }}">
+			{{ comment.created_at | date: '%b %d, %Y' }}
+		</time>
+	</div>
+
+	<div class="text">
+    	{{ comment.content }}
+    </div>
+
+</div>

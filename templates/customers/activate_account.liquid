@@ -1,0 +1,30 @@
+<div id="page-content" class="clearfix">
+
+	<header class="page-title">
+		<h1 class="title">{{ 'customers.account_activation_page.title' | t }}</h1>
+		<span class="subtitle">{{ 'customers.account_activation_page.subtitle' | t }}</span>
+	</header>
+
+	{% form 'activate_customer_password' %}
+
+		{% include 'form-errors' %}
+
+		<div class="krown-column-row span6 first">
+			<label for="customer_password">{{ 'customers.account_activation_page.form_password_label' | t }}</label>
+			<input type="password" value="" name="customer[password]" id="customer_password">
+		</div>
+
+		<div class="krown-column-row span6">
+			<label for="customer_password_confirmation">{{ 'customers.account_activation_page.form_password_confirm_label' | t }}</label>
+			<input type="password" value="" name="customer[password_confirmation]" id="customer_password_confirmation">
+		</div>
+
+		<input type="submit" class="button color" value="{{ 'customers.account_activation_page.form_activate_button' | t }}">
+
+		<div class="right">
+			{{ 'general.prefixes.or' | t }} <input type="submit" class="text-link" name="decline" id="customer_decline" value="{{ 'customers.account_activation_page.form_decline_button' | t }}">
+		</div>
+
+	{% endform %}
+
+</div>
