@@ -1,3 +1,6 @@
+<!-- Bold: QB - Step 1 -->
+{% include 'shappify-qb-no-select' %}
+<!-- // end Bold code -->
 <!-- Bold D&H //product -->
 {% if product.metafields.inventory.ShappifyHidden == "true" %}
 Product is not available
@@ -54,6 +57,9 @@ Product is not available
 					<select name="id" id="productSelect" class="product-variants">
 
 						{% for variant in product.variants %}
+						<!-- Bold: QB - Step 2 -->
+						{% if variant.metafields.shappify_qb.qb_hide == "1" %}{% continue %}{% endif %}
+						<!-- // end Bold code -->
 							{% if variant.available %}
 								<option {% if variant == product.selected_or_first_available_variant %} selected="selected" data-sku="{{ variant.sku }}" {% endif %} value="{{ variant.id }}">
 									{{ variant.title }} - {{ variant.price | money_with_currency }}
@@ -74,6 +80,10 @@ Product is not available
 					{% if settings.quantity_selector %}
 						<input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-selector">
 					{% endif %}
+					
+					<!-- Bold: QB - Step 4 -->
+					<div id="shappify-qty-msg"></div>
+					<!-- // end Bold code -->
 
 					<button type="submit" name="add" id="addToCart" class="button color"><span id="addToCartText">{{ 'products.page.add_to_cart_button' | t }}</span></button>
 
@@ -304,7 +314,7 @@ Product is not available
 			$('head').append('<style type="text/css">' + selectLabels + '</style>');
 		}
 
-	    {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+	    {% if shappify_qb_options_count == 1 and product.variants.first.title contains 'Default' %}
 			$('.selector-wrapper').hide();
 	    {% endif %}
 

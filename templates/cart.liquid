@@ -1,7 +1,3 @@
-<!-- Bold: Options 4-1 --> 
-<script>function update_qty_builder(builder_id, qty){ jQuery('.'+builder_id+"_qty").val(qty.value); } function remove_product_builder(builder_id){ jQuery('.'+builder_id+"_qty").val(0); jQuery('.'+builder_id+"_qty").parents("form").submit(); }</script>
-{% include 'bold-cart-handler' %}
-<!-- // end Options 4-1 -->
 <div id="page-content" class="clearfix">
 
 	<header class="page-title">
@@ -9,32 +5,18 @@
 		<span class="subtitle">{{ 'cart.general.order_count' | t: count: cart.item_count }}</span>
 	</header>
 
+<!-- Bold: Quantity Breaks - Step 7 -->
+<div id="shappify-qty-cart-msg"></div>
+<!-- // end Bold code -->
 	{% if cart.item_count > 0 %}
 
 		<form id="cart-form" class="clearfix" action="/cart" method="post" novalidate>
 
 			{% for item in cart.items %}
 
-				<!-- Bold: Options 4-2 -->
-				{% include 'boldoptions' with 'step2' %}
-				<!-- // end Options 4-2 -->
-
-
-				<div class="cart-row clearfix {% include 'boldoptions' with 'step3' %}" data-id="{{ item.id }}" style="{% include 'boldoptions' with 'step4' %}">
-
-
-				<!-- Bold: Options 4-5 -->
-				{% if builder[0] %}
-				<img src="{{ builder[1] }}" alt="{{ builder[0] }}" /> 
-				{% else %}
+				<div class="cart-row clearfix" data-id="{{ item.id }}">
 
 					<a class="cart-img" href="{{ item.url | within: collections.all }}" style="background-image:url({{ item | img_url: 'medium' }})">{{ item.title | escape }}</a>
-					<!-- Bold: Options 4-6 -->
-					{% include 'boldoptions' with 'step6' %}
-					<!-- // end Options 4-6 -->
-				{% endif %}
-				 <!-- // end Options 4-5 -->
-
 
 					<div class="content">
 
@@ -48,7 +30,7 @@
 									<small>{{ item.variant.title }}</small>
 								{% endunless %}
 
-								<span class="price">{% include 'boldoptions' with 'step12' %}</span>
+								<span class="price">{{ item.price | money }}</span>
 
 								{% assign property_size = item.properties | size %}
 				              {% if property_size > 0 %}
@@ -76,9 +58,9 @@
 
 					</div>
 
-					<input class="count {% include 'boldoptions' with 'step7' %}" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" data-id="{{ item.id }}">
+					<input class="count" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" data-id="{{ item.id }}">
 
-					<a class="remove {% include 'boldoptions' with 'step10' %}" href="{% include 'boldoptions' with 'step9' %}" data-id="{{ item.id }}">{% include 'asset_svg' with 'close_icon' %} {% include 'boldoptions' with 'step11' %}</a>
+					<a class="remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0" data-id="{{ item.id }}">{% include 'asset_svg' with 'close_icon' %}</a>
 
 				</div>
 
@@ -114,6 +96,3 @@
 	{% endif %}
 
 </div>
-<!-- Bold: Options 4-14 -->
-{% include 'bold-cart-modal' %}
-<!-- // end Options 4-14 -->
