@@ -33,11 +33,19 @@
 			</li>
 
 		{% else %}
+			{% assign my_title = link.title %}
 
-			<li{% if link.active %} class="selected"{% endif %}>
-				<a href="{{ link.url }}">{{ link.title }}</a>
-			</li>
-			
+			{% if customer %}			
+				{% if my_title != "Request Account" %}
+					<li{% if link.active %} class="selected"{% endif %}>
+						<a href="{{ link.url }}">{{ my_title }}</a>
+					</li>
+				{% endif %}	
+			{% else %}
+					<li{% if link.active %} class="selected"{% endif %}>
+						<a href="{{ link.url }}">{{ my_title }}</a>
+					</li>
+			{% endif %}	
 		{% endif %}
 
 	<!-- locksmith:v3({% endunless %}) -->

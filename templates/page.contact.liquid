@@ -34,33 +34,20 @@
 		</div>
 
 		<div class="krown-column-container span6 first">
-			<label for="contactFormCity" class="hidden-label">{{ 'general.contact_form.city_label' | t }}</label>
-			<input type="text" id="contactFormCity" name="contact[city]" placeholder="City" autocapitalize="words" >
-		</div>
-
-		<div class="krown-column-container span2">
-			<label for="contactFormState" class="hidden-label">{{ 'general.contact_form.state_label' | t }}</label>
-			<input type="text" id="contactFormState" name="contact[state]" placeholder="State" autocapitalize="words" >
-		</div>
-
-		<div class="krown-column-container span4 first">
-			<label for="contactFormCert" class="hidden-label">{{ 'general.contact_form.cert_label' | t }}</label>
-			<input type="text" id="contactFormCert" name="contact[cert]" placeholder="Resale Certificate #" autocapitalize="words" >
-		</div>
-
-		<div class="krown-column-container span2">
-			<label for="contactFormCertState" class="hidden-label">{{ 'general.contact_form.certstate_label' | t }}</label>
-			<input type="text" id="contactFormCertState" name="contact[certstate]" placeholder="Registered State" autocapitalize="words" >
-		</div>
-
-		<div class="krown-column-container span4">
 			<label class="hidden-label"></label>
 		   <select id="contactFormIndustryType" name="contact[industry type]">
-		   		<option>Your Industry..</option>
-		       <option>Guns</option>
-		       <option>Golf</option>
-		       <option>More here...</option>
+		   		<option>What is this related to?</option>
+		       <option>Open Account</option>
+		       <option>Locate Dealer</option>
+		       <option>Problem With My Order</option>
+		       <option>Placeing An Order</option>
+		       <option>Refer A Friend</option>
 		   </select>
+		</div>
+
+		<div class="krown-column-container span6">
+			<label for="contactFormOrderNumber" class="hidden-label">{{ 'general.contact_form.order_label' | t }}</label>
+			<input type="text" id="contactOrderNumber" name="contact[order]" placeholder="Order Number (not required)" value="">
 		</div>
 
 		<div class="krown-column-container span12 first">
